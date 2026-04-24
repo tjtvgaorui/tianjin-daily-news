@@ -2,7 +2,12 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<!-- 微信强制全屏适配 -->
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
 <title>天津当日热点选题</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,17 +16,20 @@
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
   body {
     width: 100vw;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
     background: #f0f2f5;
     color: #1a1a1a;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     overflow-y: auto;
     position: relative;
+    padding-bottom: env(safe-area-inset-bottom);
   }
   .card {
     background: #fff;
@@ -171,6 +179,21 @@
 </style>
 </head>
 <body>
+<script>
+// 微信内置浏览器强制全屏适配
+(function(){
+  var meta = document.querySelector('meta[name="viewport"]');
+  if(meta){
+    var ww = window.screen.width || window.innerWidth;
+    var scale = ww / 430;
+    if(scale > 1) scale = 1;
+    meta.setAttribute('content', 'width=device-width, initial-scale=' + scale.toFixed(3) + ', maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover');
+  }
+  // 强制 body 不超出屏幕
+  document.documentElement.style.overflowX = 'hidden';
+  document.body.style.overflowX = 'hidden';
+})();
+</script>
 
 <div class="card">
   <div class="header">
