@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=540, initial-scale=1.0">
+<title>每日热点速递</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 540px;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: #f0f2f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  .card {
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    padding: 24px 24px 20px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: ""; position: absolute;
+    right: -20px; top: -30px;
+    width: 160px; height: 160px;
+    background: rgba(255,255,255,0.08); border-radius: 50%;
+  }
+  .header::before {
+    content: ""; position: absolute;
+    right: 40px; top: 20px;
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,0.05); border-radius: 50%;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 12px; letter-spacing: 1px; margin-bottom: 12px;
+  }
+  .title { font-size: 26px; font-weight: 800; letter-spacing: 2px; position: relative; }
+  .date-info { margin-top: 8px; font-size: 14px; opacity: 0.85; position: relative; }
+  .body { padding: 8px 24px 16px; }
+
+  /* 新闻条目 */
+  .news-item {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
+    border-radius: 14px;
+    margin: 4px 0;
+  }
+  .news-item:hover { background: #f8f9fa; transform: translateX(2px); }
+  .news-item:active { transform: scale(0.98); }
+
+  .news-main {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 12px;
+    border-bottom: 1px solid #f5f5f5;
+    transition: all 0.25s ease;
+  }
+  .news-item:last-child .news-main { border-bottom: none; }
+  .news-icon {
+    flex-shrink: 0;
+    width: 42px; height: 42px; border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; font-weight: bold;
+  }
+  .icon-tech { background: #e3f2fd; color: #1565c0; }
+  .icon-finance { background: #e8f5e9; color: #2e7d32; }
+  .icon-world { background: #fff3e0; color: #e65100; }
+  .icon-science { background: #fce4ec; color: #c62828; }
+  .icon-society { background: #f3e5f5; color: #7b1fa2; }
+
+  .news-content { flex: 1; min-width: 0; }
+  .news-header { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+  .news-tag {
+    display: inline-block; font-size: 11px; padding: 2px 8px;
+    border-radius: 4px; font-weight: 600;
+  }
+  .tag-tech { background: #e3f2fd; color: #1565c0; }
+  .tag-finance { background: #e8f5e9; color: #2e7d32; }
+  .tag-world { background: #fff3e0; color: #e65100; }
+  .tag-science { background: #fce4ec; color: #c62828; }
+  .tag-society { background: #f3e5f5; color: #7b1fa2; }
+
+  .hot-badge {
+    display: inline-flex; align-items: center; gap: 2px;
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+    color: #fff; font-size: 10px; padding: 1px 6px;
+    border-radius: 8px; font-weight: normal;
+  }
+  .news-title {
+    font-size: 15px; color: #222; line-height: 1.55;
+    font-weight: 600; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* 展开箭头 */
+  .expand-hint {
+    flex-shrink: 0; width: 22px; height: 22px;
+    border-radius: 50%; background: #eee; color: #888;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; margin-top: 4px; transition: transform 0.3s;
+  }
+  .news-item.expanded .expand-hint { transform: rotate(180deg); }
+
+  /* 详情面板 */
+  .detail-panel {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    background: linear-gradient(to right, #fafbff, #f5f7ff);
+    border-radius: 0 0 14px 14px; margin: 0 4px;
+  }
+  .news-item.expanded .detail-panel {
+    max-height: 500px; padding: 14px 16px 16px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .detail-inner { font-size: 13.5px; color: #444; line-height: 1.75; }
+  .detail-source {
+    margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .source-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 12px; color: #1a73e8;
+    text-decoration: none; padding: 4px 10px;
+    background: #e8f0fe; border-radius: 6px;
+    font-weight: 500;
+  }
+  .source-link:hover { background: #d2e3fc; }
+
+  .footer {
+    text-align: center; padding: 14px 24px 16px;
+    background: #fafafa;
+  }
+  .footer-text { font-size: 11px; color: #999; letter-spacing: 1px; }
+
+  /* 统计栏 */
+  .stats-bar {
+    display: flex; justify-content: space-around;
+    padding: 12px 16px; background: #f8f9ff; border-radius: 12px;
+    margin-bottom: 8px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 18px; font-weight: 800; color: #1a73e8; }
+  .stat-label { font-size: 11px; color: #888; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="header">
+    <div class="badge">📡 DAILY NEWS</div>
+    <div class="title">天津当日热点选题</div>
+    <div class="date-info">2026年4月24日 星期五</div>
+  </div>
+
+  <div class="body">
+    <!-- 统计 -->
+    <div class="stats-bar">
+      <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">条热点</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">个领域</div></div>
+      <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">条热门</div></div>
+    </div>
+
+    <!-- 新闻1 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-science">🚀</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-science">航天科技</span>
+            <span class="hot-badge">🔥 HOT</span>
+          </div>
+          <div class="news-title">第11个"中国航天日"成都开幕，恰逢航天事业70周年</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          第11个"中国航天日"主场活动今日在成都世纪城国际展览中心正式开幕。今年恰逢<strong>中国航天事业创建70周年</strong>与航天日设立10周年，这场"双庆"盛典以"七秩问天路"为主题。
+          <br><br>
+          活动将发布<strong>嫦娥五号月球科研成果</strong>，并展示中国载人航天最新成就。国家航天局、工业和信息化部、四川省政府联合主办。
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 相关报道</span>
+            <a class="source-link" href="#" target="_blank">🔗 查看详情 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻2 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-tech">🤖</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-tech">人工智能</span>
+            <span class="hot-badge">🔥 HOT</span>
+          </div>
+          <div class="news-title">OpenAI 正式发布 GPT-5.5 旗舰模型，Token 成本降至 1/35</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          OpenAI 今日（4月24日）正式发布 GPT-5.5 模型，定位为目前最智能、最直观的旗舰模型。核心亮点：
+          <br><br>
+          • 在 <strong>Agentic Coding、计算机操作、科研</strong>等任务上表现卓越<br>
+          • 相比 GPT-5.4，完成相同任务 <strong>Token 消耗降低至原来的 1/35</strong><br>
+          • 在编程、调试代码、在线研究等方面全面超越 Claude Opus 4.7 与 Gemini 3.1 Pro
+          <br><br>
+          Token 成本断崖式下降意味着 AI 编程助手使用成本将大幅降低，Codex/Cursor 类工具或迎来新一轮升级。
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：36氪/IT之家</span>
+            <a class="source-link" href="https://www.36kr.com/p/3780018156311810" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻3 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-finance">💰</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-finance">商业并购</span>
+          </div>
+          <div class="news-title">SpaceX 获 600 亿美元收购 Cursor 期权</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          SpaceX 与 AI 编程工具 Cursor 母公司 Anysphere 正式签署重磅协议：
+          <br><br>
+          • SpaceX 获得在今年年内以 <strong>600 亿美元全资收购</strong> Cursor 的权利<br>
+          • 若放弃收购权，需支付 <strong>100 亿美元</strong>深度合作费<br>
+          • Cursor 去年 11 月估值仅 290 亿美元，五个月内翻倍
+          <br><br>
+          马斯克已将 xAI 并入 SpaceX，正在打造"火箭+AI 编程+大模型"技术闭环。600 亿标的比肩顶级 AI 公司，对行业估值逻辑影响深远。
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：21世纪经济报道</span>
+            <a class="source-link" href="#" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻4 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-finance">📈</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-finance">A股市场</span>
+          </div>
+          <div class="news-title">A 股一季报密集披露，社保基金大幅加仓多只股票</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          随着上市公司 2026 年一季报密集披露，社保基金一季度末重仓情况浮出水面。四大证券报头版头条聚焦：
+          <br><br>
+          • 社保基金在<strong>新能源、半导体、医药</strong>等赛道大幅加仓<br>
+          • 多只重仓股一季度涨幅超过 30%<br>
+          • 机构投资者对 A 股中长期配置信心持续增强
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：中国证券报/雪球</span>
+            <a class="source-link" href="https://xueqiu.com/3338215700/385518836" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻5 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-tech">🏃</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-tech">具身智能</span>
+            <span class="hot-badge">🔥 HOT</span>
+          </div>
+          <div class="news-title">荣耀机器人"闪电"夺人形半马冠军，超越人类世界纪录</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          2026 北京亦庄人形机器人半程马拉松举行：
+          <br><br>
+          • 荣耀自研机器人"<strong>闪电</strong>"以净用时 <strong>50分26秒</strong> 夺得自主导航组冠军<br>
+          • 该成绩<strong>刷新人类半马世界纪录</strong>（人类纪录为 57分20秒）<br>
+          • 超百支赛队参赛，自主导航（非遥控）组夺冠证明端到端决策能力成熟
+          <br><br>
+          从去年机器人跑马拉松被调侃"摔跤合集"，到今年全面超越人类极限，具身智能进化速度超出预期。
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：中新网/IT之家</span>
+            <a class="source-link" href="https://www.chinanews.com/cj/2026/04-19/10606469.shtml" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻6 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-world">🌍</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-world">国际股市</span>
+          </div>
+          <div class="news-title">美股三大指数普跌，德州仪器暴涨 19% 创 25 年最大涨幅</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          隔夜美股三大股指收盘普跌：
+          <br><br>
+          • 道指跌 <strong>0.36%</strong>，纳指跌 <strong>0.89%</strong>，标普 500 跌 <strong>0.41%</strong><br>
+          • 软件股领跌，甲骨文跌超 5%，闪迪跌超 4%<br>
+          • 但<strong>德州仪器暴涨超 19%</strong>，创 2001 年以来最大单日涨幅
+          <br><br>
+          市场分化明显，芯片细分领域表现强劲，整体情绪偏谨慎。
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：新浪财经</span>
+            <a class="source-link" href="https://finance.sina.com.cn/headline/2026-04-24/doc-inhvpyyn4888757.shtml" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻7 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-society">🏭</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-society">产业展会</span>
+          </div>
+          <div class="news-title">深圳机器人全产业链接会开幕，500+ 企业参展</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          FAIR plus 2026 机器人全产业链接会 4 月 22 日在深圳开幕：
+          <br><br>
+          • 展会规模从去年 7500㎡ 扩容至 <strong>15000㎡</strong><br>
+          • 汇聚 <strong>500+</strong> 产业链企业、50+ 具身智能核心环节<br>
+          • 70+ 重磅活动、200+ 行业领袖参与<br>
+          • 人形机器人展区人气十足，具身智能成绝对焦点
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：深圳新闻网</span>
+            <a class="source-link" href="https://www.sznews.com/news/content/2026-04/23/content_32025418.htm" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新闻8 -->
+    <div class="news-item" onclick="toggleDetail(this)">
+      <div class="news-main">
+        <div class="news-icon icon-world">🌏</div>
+        <div class="news-content">
+          <div class="news-header">
+            <span class="news-tag tag-world">国际会展</span>
+          </div>
+          <div class="news-title">700 家中企亮相德国汉诺威工业博览会</div>
+        </div>
+        <div class="expand-hint">▼</div>
+      </div>
+      <div class="detail-panel">
+        <div class="detail-inner">
+          德国汉诺威工业博览会正在进行中：
+          <br><br>
+          • <strong>700 家中国企业</strong>参展，数量创历史新高<br>
+          • 展出涵盖智能制造、新能源汽车、绿色能源等领域<br>
+          • 报告称<strong>中国正引领未来工厂发展方向</strong><br>
+          • 中企从"参与者"向"规则制定者"角色转变
+          <div class="detail-source">
+            <span style="font-size:12px;color:#999;">📎 来源：环球网</span>
+            <a class="source-link" href="https://world.huanqiu.com/roll/" target="_blank">🔗 阅读原文 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">数据来源：公开网络 · AI 智能整理生成 · WorkBuddy 自动推送</div>
+    <div style="margin-top:8px;font-size:10px;color:#bbb;">👆 点击任意新闻可展开详情</div>
+  </div>
+</div>
+
+<script>
+function toggleDetail(el) {
+  const wasExpanded = el.classList.contains('expanded');
+  // 关闭所有其他的
+  document.querySelectorAll('.news-item.expanded').forEach(item => {
+    if (item !== el) item.classList.remove('expanded');
+  });
+  // 切换当前
+  el.classList.toggle('expanded', !wasExpanded);
+}
+</script>
+
+</body>
+</html>
