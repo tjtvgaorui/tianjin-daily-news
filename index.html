@@ -96,6 +96,7 @@
   .num-2 { background: linear-gradient(135deg, #ff7f50, #ffa07a); }
   .num-3 { background: linear-gradient(135deg, #ffa502, #ffcc00); }
   .num-other { background: linear-gradient(135deg, #b8b8b8, #d0d0d0); color: #666 !important; }
+  .num-topic { background: linear-gradient(135deg, #7b1fa2, #ab47bc); font-size: 13px; }
 
   .news-content { flex: 1; min-width: 0; }
   .news-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 3px; }
@@ -104,12 +105,26 @@
   .tag-new { background: #e8f5e9; color: #27ae60; }
   .tag-policy { background: #e3f2fd; color: #1976d2; }
   .tag-data { background: #fce4ec; color: #c62828; }
+  .tag-topic { background: #f3e5f5; color: #7b1fa2; }
 
   .news-title {
     font-size: 13.5px; color: #222; line-height: 1.5;
     font-weight: 600; display: -webkit-box;
     -webkit-line-clamp: 2; -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* 选题建议标题 - 紫色系 */
+  .topic-suggestion .topic-title {
+    font-size: 13.5px; color: #7b1fa2; line-height: 1.5;
+    font-weight: 600; display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  /* 选题建议左侧淡紫色边框 */
+  .topic-suggestion .news-main {
+    border-left: 3px solid #ce93d8;
+    background: linear-gradient(to right, #faf5ff, transparent);
   }
 
   .expand-hint { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: #eee; color: #888; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-top: 3px; transition: transform 0.3s; }
@@ -307,6 +322,40 @@
     </div></div>
   </div>
 
+  <!-- 选题建议1 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">津城夜经济复苏调查：从海河到夜市烟火气的回归</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>春夏之交是夜经济传统旺季，天津夜市、海河游船、露天餐饮等场景的复苏情况是民生热点。<br><br>
+      <b>采访角度：</b>① 跟踪几个代表性夜市/商圈的人流量和营业额变化；② 对比去年同期数据；③ 访谈商户和消费者，记录真实经营状况。<br><br>
+      <b>预期亮点：</b>数据对比 + 人物故事 + 场景描写
+    </div></div>
+  </div>
+
+  <!-- 选题建议2 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">老旧小区改造三年回头看：居民生活到底改善了多少？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>2023年启动的大规模改造已过三年，正是做回访调查的最佳时间节点。<br><br>
+      <b>采访角度：</b>① 回访3-5个已改造小区，对比改造前后照片；② 居民满意度——哪些改好了、哪些又出问题了；③ 物业管理跟进情况。<br><br>
+      <b>预期亮点：</b>政策落地实效检验型报道，有对比有真相
+    </div></div>
+  </div>
+
 
   <!-- ==================== 板块2：京津冀合作发展 ==================== -->
   <div class="section-header sec-jjj">
@@ -435,6 +484,40 @@
     </div></div>
   </div>
 
+  <!-- 选题建议3 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">京津冀通勤族生存图鉴：每天跨城的两小时人生</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>跨省公交和定制快巴刚开通，正是关注通勤群体的好时机，有温度的民生故事。<br><br>
+      <b>采访角度：</b>① 跟踪3-5位跨城通勤者（天津→北京/廊坊→天津），记录时间账和经济账；② 新开通线路的实际体验——票价、时长、舒适度；③ 通勤对家庭生活的影响。<br><br>
+      <b>预期亮点：</b>人物特写 + 数据记录，展现一体化发展的微观视角
+    </div></div>
+  </div>
+
+  <!-- 选题建议4 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">京津冀医疗互通一年后：哪些承诺兑现了？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>104项检验结果互认、1326家医疗机构互通——政策数字很漂亮，但老百姓的真实体验如何？<br><br>
+      <b>采访角度：</b>① 实地走访三地医院，模拟异地就医全流程；② 访谈跨省就医的患者，了解实际结算体验；③ 哪些检查真正免了重复做、哪些还是得重查？<br><br>
+      <b>预期亮点：</b>政策落地检验型报道，用真实就医体验说话
+    </div></div>
+  </div>
+
 
   <!-- ==================== 板块3：天津人物故事 ==================== -->
   <div class="section-header sec-person">
@@ -500,6 +583,40 @@
     <div class="detail-panel"><div class="detail-inner">
       天津市先进外商投资企业表彰大会上，88家企业及10位企业家获表彰。这些企业家为天津招商引资和对外开放做出了突出贡献。
       <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津政务网</span><a class="source-link" href="https://www.tj.gov.cn/sy/tjxw/202310/t20231026_6440111.html" target="_blank">🔗 阅读原文 ↗</a></div>
+    </div></div>
+  </div>
+
+  <!-- 选题建议5 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">天津街头手艺人的坚守与转型：炸糕摊、煎饼店的生意经</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>城市更新中传统手艺人的生存状态变化，是人文关怀与时代变迁的交汇点。<br><br>
+      <b>采访角度：</b>① 跟踪几位老手艺人（煎饼、炸糕、修鞋等），记录一天的经营状况；② 原材料成本上涨、客流变化、接班人问题；③ 有人转型做外卖/直播了吗？<br><br>
+      <b>预期亮点：</b>人物特写 + 行业观察，有烟火气有时代感
+    </div></div>
+  </div>
+
+  <!-- 选题建议6 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">返乡创业的天津年轻人：为什么选择回来？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>"人才回流"是当前全国性话题，天津作为直辖市对年轻人的吸引力值得关注。<br><br>
+      <b>采访角度：</b>① 找3-5位从北京/上海回津的90后/00后创业者；② 他们放弃了什么、看中了天津什么？③ 创业现状——遇到哪些机遇和困难？<br><br>
+      <b>预期亮点：</b>青年创业群像，折射城市竞争力和发展环境
     </div></div>
   </div>
 
@@ -586,6 +703,40 @@
     </div></div>
   </div>
 
+  <!-- 选题建议7 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">天津港口从"大港"到"强港"：智能化升级中的码头工人转型故事</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>天津港是世界级大港，智能化升级是趋势，但背后普通工人的命运变化更值得关注。<br><br>
+      <b>采访角度：</b>① 跟踪2-3位老码头工人，记录他们的转岗/再培训经历；② 智能化设备替代了多少人工岗位？创造了哪些新岗位？③ 港口经济数据与个人故事的对照。<br><br>
+      <b>预期亮点：</b>产业升级中的人文视角，数据硬核 + 人物有温度
+    </div></div>
+  </div>
+
+  <!-- 选题建议8 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">天津自贸区制度创新清单：企业真正用上了哪些红利？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>自贸区政策很多，但中小企业的实际获得感是检验政策成效的真正标尺。<br><br>
+      <b>采访角度：</b>① 走访5-8家不同规模的天津自贸区注册企业；② 哪些政策他们实际在用、哪些"听说过但没用过"？③ 政策落地的"最后一公里"堵点在哪里？<br><br>
+      <b>预期亮点：</b>企业视角的政策评估报道，务实接地气
+    </div></div>
+  </div>
+
 
   <!-- ==================== 板块5：天津科教文卫 ==================== -->
   <div class="section-header sec-edu">
@@ -654,6 +805,40 @@
     </div></div>
   </div>
 
+  <!-- 选题建议9 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">南开/天大实验室成果转化之路：从论文到产品有多远？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>天津高校科研实力强，但"论文多、转化少"是普遍痛点，科技成果转化的堵点值得深挖。<br><br>
+      <b>采访角度：</b>① 走访南开、天大的重点实验室和校办企业/孵化器；② 找2-3个成功转化和2-3个"躺在实验室"的案例做对比；③ 科研人员访谈——他们在转化过程中遇到的真实障碍。<br><br>
+      <b>预期亮点：</b>深度调查报道，揭示产学研结合的真实生态
+    </div></div>
+  </div>
+
+  <!-- 选题建议10 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">天津博物馆热背后：年轻人为什么爱逛馆了？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>"博物馆热""看展打卡"成为年轻人新时尚，天津的博物馆观众画像正在发生变化。<br><br>
+      <b>采访角度：</b>① 统计天津各大博物馆近期观众数据（年龄构成、参观频次变化）；② 街采年轻观众——他们为什么来、看了什么、社交媒体上怎么分享；③ 文化消费趋势与城市软实力的关系。<br><br>
+      <b>预期亮点：</b>文化消费趋势观察，数据 + 街采 + 场景描写
+    </div></div>
+  </div>
+
 
   <!-- ==================== 板块6：天津民生服务 ==================== -->
   <div class="section-header sec-life">
@@ -704,6 +889,40 @@
     <div class="detail-panel"><div class="detail-inner">
       新华网天津频道联合权威医疗机构发布最新肿瘤早筛指南，帮助市民了解常见肿瘤筛查方法和注意事项，早发现早治疗。
       <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：新华网天津</span><a class="source-link" href="http://tj.news.cn/" target="_blank">🔗 阅读原文 ↗</a></div>
+    </div></div>
+  </div>
+
+  <!-- 选题建议11 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">天津供暖季结束后的"后遗症"：维修投诉追踪</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>供暖季刚结束正是做"回头看"的最佳时机，居民积攒一冬的问题需要回应。<br><br>
+      <b>采访角度：</b>① 收集供暖投诉热线/网格数据，分类统计主要问题类型；② 跟踪几起典型投诉的处理结果；③ 供热企业的整改计划和资金投入情况。<br><br>
+      <b>预期亮点：</b>民生监督类报道，数据扎实 + 问题导向
+    </div></div>
+  </div>
+
+  <!-- 选题建议12 -->
+  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
+    <div class="news-main">
+      <div class="news-num num-topic">💡</div>
+      <div class="news-content">
+        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
+        <div class="news-title topic-title">天津就业市场春季扫描：哪些岗位招人难？</div>
+      </div>
+      <div class="expand-hint">▼</div>
+    </div>
+    <div class="detail-panel"><div class="detail-inner">
+      <b>推荐理由：</b>春季招聘旺季，就业市场供需两端的变化是持续的民生热点话题。<br><br>
+      <b>采访角度：</b>① 招聘会实地走访 + HR访谈，了解哪些岗位最难招；② 蓝领技术岗 vs 白领岗的需求对比；③ 求职者的真实感受——薪资预期与市场实际的差距。<br><br>
+      <b>预期亮点：</b>就业市场深度观察，有数据有故事
     </div></div>
   </div>
 
