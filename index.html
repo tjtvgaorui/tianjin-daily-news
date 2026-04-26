@@ -10,91 +10,34 @@
 <title>天津当日热点选题</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html {
-    width: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
-  body {
-    width: 100vw;
-    min-height: 100vh;
-    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
-    background: #f0f2f5;
-    color: #1a1a1a;
-    line-height: 1.6;
-    overflow-x: hidden !important;
-    overflow-y: auto;
-    position: relative;
-  }
-
-  /* ====== 头部 ====== */
-  .header {
-    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 50%, #002171 100%);
-    padding: 18px 14px 14px;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-  }
+  html { width: 100%; overflow-x: hidden; overflow-y: auto; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+  body { width: 100vw; min-height: 100vh; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif; background: #f0f2f5; color: #1a1a1a; line-height: 1.6; overflow-x: hidden !important; overflow-y: auto; position: relative; }
+  .header { background: linear-gradient(135deg, #1565c0 0%, #0d47a1 50%, #002171 100%); padding: 18px 14px 14px; color: #fff; position: relative; overflow: hidden; }
   .header::after { content: ""; position: absolute; right: -20px; top: -30px; width: 140px; height: 140px; background: rgba(255,255,255,0.06); border-radius: 50%; }
   .header::before { content: ""; position: absolute; right: 35px; top: 15px; width: 70px; height: 70px; background: rgba(255,255,255,0.04); border-radius: 50%; }
   .badge { display: inline-block; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); padding: 3px 9px; border-radius: 16px; font-size: 10px; letter-spacing: 1px; margin-bottom: 8px; }
   .title { font-size: 20px; font-weight: 800; letter-spacing: 1px; position: relative; }
   .date-info { margin-top: 4px; font-size: 12px; opacity: 0.85; position: relative; }
-
-  /* ====== 统计 ====== */
   .stats-bar { display: flex; justify-content: space-around; padding: 10px 8px; background: #f8f9ff; margin-bottom: 2px; }
   .stat-item { text-align: center; }
   .stat-num { font-size: 16px; font-weight: 800; color: #1565c0; }
   .stat-label { font-size: 10px; color: #888; margin-top: 1px; }
-
-  /* ====== 卡片容器 ====== */
   .card { background: #fff; width: 100%; overflow: hidden; }
-
-  /* ====== 板块标题 ====== */
-  .section-header {
-    display: flex; align-items: center; gap: 8px;
-    padding: 12px 14px 8px;
-    position: sticky; top: 0; z-index: 10;
-    background: #fff;
-    border-bottom: 2px solid #f0f0f0;
-  }
+  .section-header { display: flex; align-items: center; gap: 8px; padding: 12px 14px 8px; position: sticky; top: 0; z-index: 10; background: #fff; border-bottom: 2px solid #f0f0f0; }
   .section-icon { font-size: 18px; flex-shrink: 0; }
   .section-title { font-size: 15px; font-weight: 800; flex: 1; }
   .section-count { font-size: 11px; color: #999; background: #f0f0f0; padding: 2px 7px; border-radius: 10px; }
-
-  /* 板块颜色区分 */
   .sec-local .section-title { color: #1565c0; }
   .sec-jjj .section-title { color: #7b1fa2; }
   .sec-person .section-title { color: #c62828; }
-
-  /* ====== 新闻条目 ====== */
-  .news-item {
-    display: block;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.25s ease;
-  }
-  .news-main {
-    display: flex; align-items: flex-start; gap: 8px;
-    padding: 9px 14px;
-    border-bottom: 1px solid #f5f5f5;
-    transition: all 0.25s ease;
-  }
-  .news-num {
-    flex-shrink: 0;
-    width: 22px; height: 22px; border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; color: #fff;
-  }
+  .news-item { display: block; cursor: pointer; text-decoration: none; color: inherit; transition: all 0.25s ease; }
+  .news-main { display: flex; align-items: flex-start; gap: 8px; padding: 9px 14px; border-bottom: 1px solid #f5f5f5; transition: all 0.25s ease; }
+  .news-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; }
   .num-1 { background: linear-gradient(135deg, #ff4757, #ff6b81); }
   .num-2 { background: linear-gradient(135deg, #ff7f50, #ffa07a); }
   .num-3 { background: linear-gradient(135deg, #ffa502, #ffcc00); }
   .num-other { background: linear-gradient(135deg, #b8b8b8, #d0d0d0); color: #666 !important; }
   .num-topic { background: linear-gradient(135deg, #7b1fa2, #ab47bc); font-size: 13px; }
-
   .news-content { flex: 1; min-width: 0; }
   .news-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 3px; }
   .tag-sm { font-size: 9px; padding: 1px 5px; border-radius: 3px; font-weight: 600; }
@@ -103,39 +46,16 @@
   .tag-policy { background: #e3f2fd; color: #1976d2; }
   .tag-data { background: #fce4ec; color: #c62828; }
   .tag-topic { background: #f3e5f5; color: #7b1fa2; }
-
-  .news-title {
-    font-size: 13.5px; color: #222; line-height: 1.5;
-    font-weight: 600; display: -webkit-box;
-    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* 选题建议标题 - 紫色系 */
-  .topic-suggestion .topic-title {
-    font-size: 13px; color: #7b1fa2; line-height: 1.5;
-    font-weight: 600; display: -webkit-box;
-    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  /* 选题建议左侧淡紫色边框 + 缩进 */
-  .topic-suggestion .news-main {
-    border-left: 3px solid #ce93d8;
-    background: linear-gradient(to right, #faf5ff, transparent);
-    padding-left: 11px;
-  }
-
+  .news-title { font-size: 13.5px; color: #222; line-height: 1.5; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .topic-suggestion .topic-title { font-size: 13px; color: #7b1fa2; line-height: 1.5; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .topic-suggestion .news-main { border-left: 3px solid #ce93d8; background: linear-gradient(to right, #faf5ff, transparent); padding-left: 11px; }
   .expand-hint { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; background: #eee; color: #888; display: flex; align-items: center; justify-content: center; font-size: 10px; margin-top: 3px; transition: transform 0.3s; }
   .news-item.expanded .expand-hint { transform: rotate(180deg); }
-
-  /* 详情面板 */
   .detail-panel { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; background: linear-gradient(to right, #fafbff, #f5f7ff); margin: 0 8px; border-radius: 0 0 10px 10px; }
   .news-item.expanded .detail-panel { max-height: 400px; padding: 10px 12px 12px; }
   .detail-inner { font-size: 12.5px; color: #444; line-height: 1.75; }
   .detail-source { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ddd; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .source-link { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; color: #1565c0; text-decoration: none; padding: 3px 8px; background: #e8f0fe; border-radius: 5px; font-weight: 500; }
-
-  /* 底部 */
   .footer { text-align: center; padding: 14px 14px 16px; background: #fafafa; }
   .footer-text { font-size: 10px; color: #999; letter-spacing: 0.5px; }
 </style>
@@ -154,20 +74,20 @@
   <div class="header">
     <div class="badge">📡 TIANJIN DAILY TOPICS</div>
     <div class="title">天津当日热点选题</div>
-    <div class="date-info">2026年4月25日 星期六 | 第09期</div>
+    <div class="date-info">2026年4月26日 星期日 | 第10期</div>
   </div>
 
   <div class="stats-bar">
     <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">大板块</div></div>
-    <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">条新闻</div></div>
-    <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">条选题</div></div>
+    <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">条新闻</div></div>
+    <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">条选题</div></div>
   </div>
 
   <!-- ==================== 板块1：天津本地热点 ==================== -->
   <div class="section-header sec-local">
     <span class="section-icon">🏠</span>
     <span class="section-title">天津本地热点</span>
-    <span class="section-count">8 条新闻</span>
+    <span class="section-count">6 条新闻</span>
   </div>
 
   <!-- 新闻1 -->
@@ -175,14 +95,14 @@
     <div class="news-main">
       <div class="news-num num-1">1</div>
       <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span><span class="tag-sm tag-policy">重磅</span></div>
-        <div class="news-title">天津一季度GDP同比增长5.0%，经济实现良好开局</div>
+        <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span><span class="tag-sm tag-policy">五一</span></div>
+        <div class="news-title">天津"五一"假期500余项活动发布，八大主题点亮津城</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      根据地区生产总值统一核算结果，一季度天津市实现地区生产总值4370.10亿元，同比增长5.0%。规上工业增加值增长5.6%，高技术制造业增加值增长11.8%，其中电子及通信设备制造业增长17.0%。滨海高新区GDP同比增长9%，领跑全市。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央广网天津/天津市统计局</span><a class="source-link" href="https://news.qq.com/rain/a/20260420A02M6Z00" target="_blank">🔗 查看详情 ↗</a></div>
+      4月24日，2026天津市"五一"假日文旅活动发布会在南开区鲁能城举行。以"五一狂欢日，津城任逍遥"为主题，集中发布500余项特色活动，涵盖"桥见浪漫游、景区欢乐游、演艺潮流游、文化博览游、乡野休闲游、新潮主题游、购物狂欢游、品质尊享游"八大主题。宝坻区潮白河四季欢乐旅游节引入"荒野之国"超级IP，设七大主题分区。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：人民网天津/新华网天津</span><a class="source-link" href="http://www.tj.xinhuanet.com/20260425/877e30d73e8e4f789f101f3356bef605/c.html" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -191,12 +111,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">5.0%增速的含金量拆解：天津一季度"超预期"靠什么撑？</div>
+        <div class="news-title topic-title">500项活动背后：天津文旅"流量密码"今年有何升级？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>拆解一季度4370亿GDP的产业构成，聚焦高技术制造业（电子通信+17%、医药+13.8%）和滨海高新区增速领跑现象，走访3-5家代表性企业了解真实经营状况，判断全年走势。
+      <b>延伸角度：</b>对比近三年五一假期天津文旅活动规模与游客数据，走访新入场的"荒野之国"等超级IP项目和小众体验打卡地，采访文旅局和商家，探讨天津如何从"路过城市"变成"目的地城市"。
     </div></div>
   </div>
 
@@ -205,14 +125,14 @@
     <div class="news-main">
       <div class="news-num num-2">2</div>
       <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span><span class="tag-sm tag-policy">民生</span></div>
-        <div class="news-title">天津三大养老新政发力：消费补贴核销超3174万元，带动消费1.5亿</div>
+        <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span><span class="tag-sm tag-data">数据</span></div>
+        <div class="news-title">2026智博会展览规模创历史新高，具身智能低空经济成新亮点</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      天津市民政局发布2026年养老领域重点数据：向中度以上失能老人发放养老服务消费补贴，全市累计核销3174.32万元，带动养老服务消费1.5亿元，20537位失能老人受益。此外，老年助餐服务和适老化家居"购新"两项政策同步推进。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：人民网天津/新华网天津</span><a class="source-link" href="https://tj.people.com.cn/n2/2026/0417/c375366-41555791.html" target="_blank">🔗 查看详情 ↗</a></div>
+      2026世界智能产业博览会将于5月28日至31日在国家会展中心（天津）举办，展览规模创历史新高。采用"1+6"板块模式，六大专业展区涵盖智能制造、人工智能核心技术、智能网联车、具身智能、低空经济、智慧生活。联想集团参与力度为历届最大。机器人嘉年华首次走出展馆，走进天津文化中心持续至6月1日儿童节。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报/天津政务网</span><a class="source-link" href="https://www.tj.gov.cn/sy/tjxw/202604/t20260425_7288106.html" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -221,12 +141,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">1比5的撬动效应：天津养老消费补贴"账本"深度透视</div>
+        <div class="news-title topic-title">具身智能进展馆：从展示到落地，天津机器人产业有多远？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>以3174万补贴撬动1.5亿消费为切入点，追踪补贴从发放到使用的全链条，走访养老机构和受益老人家庭，评估政策覆盖面、使用便捷度和实际满意度。
+      <b>延伸角度：</b>以智博会首次设立"具身智能"专区为切入点，走访天津机器人产业园区和相关企业，梳理天津在具身智能领域的研发现状和产业化进度，探讨与北京、上海相比的差距与机遇。
     </div></div>
   </div>
 
@@ -235,14 +155,14 @@
     <div class="news-main">
       <div class="news-num num-3">3</div>
       <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-new">✨ 新鲜</span></div>
-        <div class="news-title">天津2026"海河书香节"启幕，首个全民阅读活动周举行</div>
+        <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span><span class="tag-sm tag-policy">民生</span></div>
+        <div class="news-title">陈敏尔赴滨海新区调研，推动"十项行动"落地见效</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      《全民阅读促进条例》施行后首个"全民阅读活动周"于4月20日在津启动，持续至28日。水上公园书市设置约130个展位，天津图书大厦推出系列讲座，全市各区同步开展阅读推广活动，营造"书香天津"浓厚氛围。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央广网/新华网天津</span><a class="source-link" href="http://www.tj.xinhuanet.com/20260416/70604f0fc82b4493b6d7122eba64adff/c.html" target="_blank">🔗 查看详情 ↗</a></div>
+      天津市委书记陈敏尔于4月23至24日赴滨海新区调研并主持召开座谈会，强调要深入学习贯彻习近平总书记关于京津冀协同发展的重要论述，推动实施"十项行动"在滨海新区取得实效。滨海新区同日入选首批国家新型工业化示范区城市创建名单，"117项目"已完成塔冠首吊，中信集团、中海油集团、招商局集团等相继签约入驻。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：北方网/天津广播电视台</span><a class="source-link" href="http://news.enorth.com.cn/" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -251,12 +171,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">全民阅读条例落地首周：天津人的"阅读地图"长什么样？</div>
+        <div class="news-title topic-title">"117项目"塔冠首吊后：天津城市更新的存量盘活样本</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>沉浸式体验水上公园书市和各区阅读活动，统计参与人群画像（年龄、职业、阅读偏好），采访市民和书店经营者，探讨"强制立法"对阅读习惯的实际改变。
+      <b>延伸角度：</b>以"117项目"（高银金融117大厦）完成塔冠首吊这一节点为契机，深入探访多家签约入驻的央企，了解实际入驻进程与产业导入计划，评估这一超高层地标能否引领天津存量资产盘活的新路径。
     </div></div>
   </div>
 
@@ -265,14 +185,14 @@
     <div class="news-main">
       <div class="news-num num-other">4</div>
       <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span></div>
-        <div class="news-title">第24个职业病防治法宣传周启动，天津聚焦劳动者健康保障</div>
+        <div class="news-tags"><span class="tag-sm tag-hot">🔥 荣誉</span></div>
+        <div class="news-title">天津首次入选"全国游客满意十佳城市"，2010年以来首度跻身</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      4月25日至5月1日是第24个《职业病防治法》宣传周，主题为"守护职业健康 共建健康中国"。4月22日天津市卫健委召开新闻发布会，介绍"十四五"以来职业健康工作进展，法定职业病已扩容至12大类135种。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：新华网天津/国家卫健委</span><a class="source-link" href="https://www.nhc.gov.cn/zyjks/c100152/202604/108631443e034896995ac2c1a7e24b55.shtml" target="_blank">🔗 查看详情 ↗</a></div>
+      "2026津游嗨购"天津文旅消费嘉年华颁奖仪式近日举行。活动自2026年1月启动，历时三个月，累计开展直播48场，联动532家文旅消费企业及品牌，全域曝光量突破1亿次，直接带动线上文旅产品GMV达3800万元，间接撬动交通、餐饮、零售等产业链消费超亿元。天津市荣获"2025年度全国游客满意十佳城市"，这是2010年以来天津首次跻身该榜单。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央广网天津</span><a class="source-link" href="https://news.qq.com/rain/a/20260424A01SXG00" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -281,12 +201,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">职业病扩容至135种：天津高危行业工人防护现状实地调查</div>
+        <div class="news-title topic-title">游客满意度的逆袭之路：天津文旅靠什么走进"十佳"？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>结合宣传周，深入天津化工、建筑、制造等典型高危企业，了解职业病体检率、防护设备配备和劳动者自我保护意识现状。
+      <b>延伸角度：</b>追溯天津文旅近三年口碑变化，走访五大道、意式风情区、古文化街等热门打卡地，采访外地游客和本地居民，探讨城市文旅服务如何从软环境上实现质的跃升，"十佳"背后的改变是什么。
     </div></div>
   </div>
 
@@ -296,13 +216,13 @@
       <div class="news-num num-other">5</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-policy">创新</span></div>
-        <div class="news-title">海康威视牵手天开园，天津打造京津冀智能科技产业创新高地</div>
+        <div class="news-title">天津集成电路产量增长64.8%，智能工厂达528家</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      海康威视与道纪天开（天津）智能科技有限公司在天开高教科创园签署战略合作协议，双方将围绕高精度传感器研发、智能安防、场景应用等四大方向合作，助力天津加快打造京津冀智能科技产业创新高地。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报/搜狐天津</span><a class="source-link" href="https://finance.sina.com.cn/jjxw/2026-04-21/doc-inhvfcpm8059082.shtml" target="_blank">🔗 查看详情 ↗</a></div>
+      一季度天津科技创新成果亮眼：集成电路产量增长64.8%；全市建成智能工厂528家，"AI+制造"典型应用场景达1800个；国家超算互联网用户规模突破120万；半导体激光全国重点实验室成功获批，天津全国重点实验室总数增至30家；天开高教科创园累计引育企业超4900家；津产长征八号遥七运载火箭成功发射。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央广网/天津市发改委</span><a class="source-link" href="https://news.qq.com/rain/a/20260421A03K3400" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -311,12 +231,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">天开园"朋友圈"扩容记：头部企业入驻带来了什么？</div>
+        <div class="news-title topic-title">64.8%的增速从哪来：天津集成电路的"弯道加速"之路</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>以海康威视合作为案例，梳理天开园2026年引进的重大合作项目和注册企业数据，分析"国企出场景+园区出产品"模式的成效，探讨高校科研成果产业化路径。
+      <b>延伸角度：</b>深入滨海新区集成电路产业聚集区，走访天津飞腾、中芯国际天津基地等龙头企业，了解产能扩张背景和关键技术突破点，探讨天津在国产芯片战略中的地位与未来布局。
     </div></div>
   </div>
 
@@ -325,74 +245,14 @@
     <div class="news-main">
       <div class="news-num num-other">6</div>
       <div class="news-content">
-        <div class="news-tags"></div>
-        <div class="news-title">南水北调东线北延向天津应急调水启动</div>
-      </div>
-      <div class="expand-hint">▼</div>
-    </div>
-    <div class="detail-panel"><div class="detail-inner">
-      2026年度南水北调东线北延工程启动向天津应急调水，进一步保障城市供水安全和水生态环境改善，持续为天津水资源供给提供重要支撑。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：新华网天津</span><a class="source-link" href="#" target="_blank">🔗 查看详情 ↗</a></div>
-    </div></div>
-  </div>
-  <!-- 选题 -->
-  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
-    <div class="news-main">
-      <div class="news-num num-topic">💡</div>
-      <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">天津的"水安全"账本：引滦、引江、地下水退减全盘点</div>
-      </div>
-      <div class="expand-hint">▼</div>
-    </div>
-    <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>以此次应急调水为由头，系统梳理天津水资源结构变化，计算各项水源在全市供水中的占比，探讨地下水超采综合治理成效和未来供水保障体系。
-    </div></div>
-  </div>
-
-  <!-- 新闻7 -->
-  <div class="news-item" onclick="toggleDetail(this)">
-    <div class="news-main">
-      <div class="news-num num-other">7</div>
-      <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-new">✨ 新鲜</span></div>
-        <div class="news-title">西青区"十五五"文旅规划：杨柳青古镇将打造沉浸式文化体验</div>
-      </div>
-      <div class="expand-hint">▼</div>
-    </div>
-    <div class="detail-panel"><div class="detail-inner">
-      西青区文旅局局长做客《公仆走进直播间》"十五五开新局——对话区长"节目，介绍杨柳青古镇将打造更具沉浸感的文化体验项目，推动年画文化、运河文化与旅游消费深度融合。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：北方网</span><a class="source-link" href="http://news.enorth.com.cn/system/2026/04/24/059345596.shtml" target="_blank">🔗 查看详情 ↗</a></div>
-    </div></div>
-  </div>
-  <!-- 选题 -->
-  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
-    <div class="news-main">
-      <div class="news-num num-topic">💡</div>
-      <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">千年古镇的"年轻化"实验：杨柳青文旅转型能成功吗？</div>
-      </div>
-      <div class="expand-hint">▼</div>
-    </div>
-    <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>走进杨柳青古镇实地探访，对比灯展旺季与日常游客数据差异，采访当地商户、非遗传承人和年轻游客，评估沉浸式文化体验的市场接受度和可持续性。
-    </div></div>
-  </div>
-
-  <!-- 新闻8 -->
-  <div class="news-item" onclick="toggleDetail(this)">
-    <div class="news-main">
-      <div class="news-num num-other">8</div>
-      <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-policy">民生</span></div>
-        <div class="news-title">天津市推进京津冀协同发展领导小组扩大会议召开</div>
+        <div class="news-title">滨海新区推出航运人才专项支持政策，医养健康高端岗位招募160人</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      4月15日，天津市推进京津冀协同发展领导小组扩大会议召开，深入学习贯彻习近平总书记关于京津冀协同发展的重要论述，全面落实雄安新区高质量建设座谈会精神，与时俱进推进天津协同发展各项工作。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津市商务局/天津政务网</span><a class="source-link" href="https://swj.tj.gov.cn/xwzx_17135/szyw/202604/t20260416_7283108.html" target="_blank">🔗 查看详情 ↗</a></div>
+      天津滨海新区近日推出"智汇滨海"系列人才活动。新区首发航运人才专项支持政策，助力打造国际航运中心配套生态。与此同时，6家医养健康企业及科研院所联合开展高端人才招聘，提供40余个岗位共160个名额，重点吸引医学、药学、护理等高端人才，预计500人参与现场对接。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报</span><a class="source-link" href="https://epaper.tianjinwe.com/tjrb/html/2026-04/24/node_143096.htm" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -401,12 +261,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">京津冀协同的"天津答卷"：承接疏解项目落地率有多高？</div>
+        <div class="news-title topic-title">留住人才，天津还差什么？——人才政策落地效果实地调查</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>梳理天津承接北京非首都功能疏解的项目清单，统计项目落地率和企业迁入数据，选取典型案例分析协同发展对天津产业结构的实际影响。
+      <b>延伸角度：</b>以滨海新区航运和医养人才政策为样本，采访已落户天津和最终选择离开的高端人才，对比津京沪三地人才政策优惠力度与留才效果，探讨薪酬之外天津吸引人才的核心竞争力。
     </div></div>
   </div>
 
@@ -415,7 +275,7 @@
   <div class="section-header sec-jjj">
     <span class="section-icon">🤝</span>
     <span class="section-title">京津冀合作发展</span>
-    <span class="section-count">4 条新闻</span>
+    <span class="section-count">3 条新闻</span>
   </div>
 
   <!-- 新闻1 -->
@@ -424,13 +284,13 @@
       <div class="news-num num-1">1</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-hot">🔥 热门</span><span class="tag-sm tag-policy">重磅</span></div>
-        <div class="news-title">京津冀党政主要领导在京召开工作座谈会，审议通过系列重要文件</div>
+        <div class="news-title">京津冀协同发展十二周年：区域经济总量连跨6个万亿台阶</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      4月23日至24日，京津冀党政主要领导在北京召开工作座谈会。尹力、陈敏尔、倪岳峰、殷勇、张工、王正谱出席并讲话。会议聚焦雄安新区高质量建设、首都都市圈通勤圈交通便利化、京津冀美丽中国先行区建设、人形机器人产业链协进等，审议通过系列文件。这是三地站在区域经济总量近12万亿元新起点上的一次重要会议。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：人民日报/新华社</span><a class="source-link" href="https://politics.people.com.cn/n1/2026/0425/c461001-40708418.html" target="_blank">🔗 查看详情 ↗</a></div>
+      2026年，京津冀协同发展战略迎来实施十二周年。十二年深耕细作，区域经济总量11年连跨6个万亿元台阶，接近12万亿元。天津以高质量承接北京非首都功能疏解为主线，180余家关键零部件企业进入小米、理想等北京整车制造供应链体系。天津港集装箱吞吐量增长9.5%，积极打造服务雄安新区高效便捷出海通道。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央视/天津网络广播电视台</span><a class="source-link" href="https://www.tjbn.net/" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -439,12 +299,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">12万亿之后：京津冀座谈会的四大新命题解读</div>
+        <div class="news-title topic-title">12年，天津拿到了协同发展的哪些"红利"？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>深度解读座谈会四大议题（雄安建设、通勤便利化、美丽先行区、人形机器人产业链），采访发改委和区域经济专家，分析天津在各议题中的角色定位和受益空间。
+      <b>延伸角度：</b>以12周年为时间节点，盘点天津在承接疏解、产业配套、交通互联、生态共治四个维度的具体成果，采访规划专家和企业主，用数据和故事评估天津在京津冀格局中的实际收益与短板。
     </div></div>
   </div>
 
@@ -453,14 +313,14 @@
     <div class="news-main">
       <div class="news-num num-2">2</div>
       <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-new">✨ 最新</span></div>
-        <div class="news-title">京津冀签署"十五五"教育协同框架协议，推进16项重点工作</div>
+        <div class="news-tags"><span class="tag-sm tag-new">✨ 突破</span></div>
+        <div class="news-title">"通武廊"获批全国首批数据产业集聚区，京津冀数字经济融合破冰</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      4月24日，北京市教委、天津市教委、河北省教育厅签署《"十五五"时期京津冀教育协同发展总体框架协议（2026—2030年）》，聚焦6大任务、16项重点工作，包括协同创新共同体建设、人才培育协同、科技成果转化效能提升等。天津日报今日头版报道。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报/新浪财经</span><a class="source-link" href="https://epaper.tianjinwe.com/tjrb/html/2026-04/25/content_143084_3375722.htm" target="_blank">🔗 查看详情 ↗</a></div>
+      以北京通州、天津武清、河北廊坊为核心的"通武廊"区域，成功获批全国首批数据产业集聚区建设试点。三地打破行政壁垒，探索数据要素跨区域流通和产业协同新模式，标志着京津冀数字经济一体化进入实质推进阶段。天津武清区依托区位优势，将承接大量北京溢出的数字产业及研发功能。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央广网/天津市发改委</span><a class="source-link" href="https://news.qq.com/rain/a/20260421A03K3400" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -469,12 +329,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">跨省上学渐成常态：京津冀教育一体化走到了哪一步？</div>
+        <div class="news-title topic-title">"通武廊"数字先行区：打破数据壁垒，三地能走多远？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>追踪京津冀教育协同的标志性案例——天津实验小学教育集团走进雄安、京津高校联合培养项目等，采访跨省就学学生家长和教育工作者，评估一体化进展。
+      <b>延伸角度：</b>深入武清区数字产业园区采访入驻企业，了解跨省数据流通的实际障碍和试点带来的政策红利，对比全国其他数字产业集聚区经验，探讨"通武廊"模式能否成为可复制的样板。
     </div></div>
   </div>
 
@@ -484,13 +344,13 @@
       <div class="news-num num-3">3</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-data">数据</span></div>
-        <div class="news-title">京津城际扩能增站、武清站经停68列，"双城记"加速跑</div>
+        <div class="news-title">天津港集装箱吞吐量增9.5%，出口增长16.3%领跑北方港口</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      连接京津的4条高铁高峰时段实现公交化开行，京津城际扩能增站，武清站经停客车达68列，亦庄站开通。中关村示范区政策12条在天津滨海-中关村科技园复制推广，园区累计注册企业超6600家。一卡通行覆盖1.2亿三地群众。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：新浪财经/新华社</span><a class="source-link" href="https://finance.sina.com.cn/tech/roll/2026-04-25/doc-inhvskfe3896612.shtml" target="_blank">🔗 查看详情 ↗</a></div>
+      一季度天津港集装箱吞吐量增长9.5%、货物吞吐量增长4.5%，出口增速16.3%，快于全国平均水平4.4个百分点。天津临港综合保税区正式封关运行，成为全市第5个综合保税区，进一步强化天津作为京津冀乃至华北地区对外开放门户的地位，服务雄安新区高效便捷出海通道加快成形。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：央广网/天津市发改委</span><a class="source-link" href="https://news.qq.com/rain/a/20260421A03K3400" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -499,42 +359,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">武清站的"68列"实验：京津通勤人的真实时间表</div>
+        <div class="news-title topic-title">雄安的货物从天津出海有多顺畅？——一单跨省货物的全链追踪</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>以武清站为观测样本，记录京津通勤族的完整一天——从出家门到进办公室的耗时、费用和换乘体验，与高铁扩能前对比，量化交通一体化对普通人生活的改变。
-    </div></div>
-  </div>
-
-  <!-- 新闻4 -->
-  <div class="news-item" onclick="toggleDetail(this)">
-    <div class="news-main">
-      <div class="news-num num-other">4</div>
-      <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-policy">生态</span></div>
-        <div class="news-title">通廊协作推进京津冀绿色发展，医药制造业清洁生产区域协同审核</div>
-      </div>
-      <div class="expand-hint">▼</div>
-    </div>
-    <div class="detail-panel"><div class="detail-inner">
-      北京市通州区与河北省廊坊市围绕减污降碳协同生态修复示范区建设，以医药制造业为切入点创新开展清洁生产区域协同审核试点，着力破解跨区域产业发展与生态保护统筹难题。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：人民网</span><a class="source-link" href="https://finance.people.com.cn/n1/2026/0414/c1004-40701210.html" target="_blank">🔗 查看详情 ↗</a></div>
-    </div></div>
-  </div>
-  <!-- 选题 -->
-  <div class="news-item topic-suggestion" onclick="toggleDetail(this)">
-    <div class="news-main">
-      <div class="news-num num-topic">💡</div>
-      <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">跨省治污的"通廊经验"：京津冀生态协同还能复制什么？</div>
-      </div>
-      <div class="expand-hint">▼</div>
-    </div>
-    <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>以通廊协作为切入点，调研京津冀跨区域生态治理的创新机制和实际效果，探讨在化工、钢铁等更多行业推广协同审核的可行性。
+      <b>延伸角度：</b>跟踪一批从雄安新区出发、经天津港出口的货物全程，记录报关、仓储、装箱、发运各环节时间与成本，对比三年前数据，量化出海通道便利化的实际成效，采访物流企业和货主。
     </div></div>
   </div>
 
@@ -552,13 +382,13 @@
       <div class="news-num num-1">1</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-hot">🔥 人物</span></div>
-        <div class="news-title">王栋：从绿茵场健将到诚信掌舵人，用"信义"铸就人生底色</div>
+        <div class="news-title">68岁老人周希平空手夺斧护母女，生死4分钟铸就见义勇为壮举</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      第九届天津市道德模范、天津大吉利企业管理集团有限公司董事长王栋，1985年出生，从6岁与足球结缘到19岁踏上职业赛场，29岁退役投身餐饮创业，如今掌舵近2000名员工的企业集团。他凌晨4点亲赴市场检验食材品质，坚持用诚信经营事业。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报/中国文明网</span><a class="source-link" href="https://epaper.tianjinwe.com/tjrb/html/2026-04/21/content_143080_3359629.htm" target="_blank">🔗 查看详情 ↗</a></div>
+      天津市道德模范周希平，68岁高龄，接孙子放学途中遭遇持斧行凶的歹徒。她没有丝毫退缩，挺身拦截持斧男子，用血肉之躯为素不相识的一对母女筑起安全屏障。在生死攸关的4分钟里，老人一边拼力阻截，一边大声呼救，成功吓退歹徒。事后她淡然表示："只要是对的事，怎样都值得。"天津文明网于4月23日集中报道了这位第九届天津市道德模范的先进事迹。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津文明网/北方网</span><a class="source-link" href="http://wenming.enorth.com.cn/system/2026/04/23/059343556.shtml" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -567,12 +397,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">凌晨四点的董事长：一位退役球员的"餐饮诚信经"</div>
+        <div class="news-title topic-title">生死4分钟里的老人：是什么让一个68岁的人选择出手？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>跟访王栋一个完整工作日——从凌晨农贸市场验货到管理会议到一线门店，用纪实手法展现他从运动员到企业家的转型之路，挖掘"信义"在商业社会中的稀缺价值。
+      <b>延伸角度：</b>深度专访周希平老人，还原事发经过的心理细节，探访她的家庭背景与日常生活，追问"普通人见义勇为的力量从哪里来"，同时了解被救母女的后续，以人物纪实的形式呈现平凡善良的重量。
     </div></div>
   </div>
 
@@ -581,14 +411,14 @@
     <div class="news-main">
       <div class="news-num num-2">2</div>
       <div class="news-content">
-        <div class="news-tags"><span class="tag-sm tag-new">✨ 青年</span></div>
-        <div class="news-title">20位身边榜样闪耀津城：第九届天津市道德模范群像</div>
+        <div class="news-tags"><span class="tag-sm tag-new">✨ 学术</span></div>
+        <div class="news-title">天津大学教授当选中国工程院院士，产学研转化再添新力量</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      第九届天津市道德模范评选结果揭晓，20位来自各行各业、基层一线的先进典型获表彰。评选坚持群众路线，重点选树事迹过硬、群众认可的文明榜样，经基层遴选、资格审核、专家评审、网络公示等环节严格评选。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报/央广网</span><a class="source-link" href="https://epaper.tianjinwe.com/tjrb/h5/html5/2026-02/04/content_143082_3112330.htm" target="_blank">🔗 查看详情 ↗</a></div>
+      4月24日，天津大学一名教授当选中国工程院院士，再度彰显天津高校的科研实力。天津大学近年来在脑机接口、新型电池、海洋智能装备等前沿领域持续发力，本届新增院士的研究方向与天津重点产业深度契合，将为科研成果在天津落地产业化提供更强力的学术背书。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：北方网/天津广播电视台</span><a class="source-link" href="http://tjtv.enorth.com.cn/system/2026/04/25/059349743.shtml" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -597,12 +427,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">20位道德模范的"平凡力量"系列：谁是天津最感动的普通人？</div>
+        <div class="news-title topic-title">院士落地：天大这位"造物者"，把实验室变成了什么？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>从20位道德模范中选取最具故事性的3-5位，做系列人物特写——了解他们的日常生活、坚持的动力和面临的困难，用真实细节展现平凡人的精神力量。
+      <b>延伸角度：</b>专访这位新科院士，了解其研究方向与天津产业结合的具体项目，追踪其团队在天开园或滨海新区的成果转化情况，探讨顶尖科学家如何推动"实验室成果"走向"市场产品"。
     </div></div>
   </div>
 
@@ -611,14 +441,14 @@
     <div class="news-main">
       <div class="news-num num-3">3</div>
       <div class="news-content">
-        <div class="news-tags"></div>
-        <div class="news-title">天开园创业青年群像：高校师生"走出实验室"的创业故事</div>
+        <div class="news-tags"><span class="tag-sm tag-new">✨ 青年</span></div>
+        <div class="news-title">低空经济揽才千岗：天津大学生入局"新航道"</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      天开高教科创园"一核两翼多点"持续扩容至全市9个区，成为盘活存量资源、推动科技创新和产业创新融合的重要平台。越来越多的高校师生选择走出实验室，在天开园实现科研成果产业化和创业梦想。
-      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：北方网/天津市科技局</span><a class="source-link" href="https://www.sohu.com/a/985880407_121443915" target="_blank">🔗 查看详情 ↗</a></div>
+      4月24日，中国民航大学联合天津低空经济产业园区举办校企供需对接会，天津低空经济产业链上的无人机研发、飞行测试、适航认证、运营管理等岗位集中亮相，面向全国高校应届生提供上千个岗位。这是天津布局低空经济赛道后，首次面向高校规模化招募专业人才，标志着这一新兴产业迈入快速扩张阶段。
+      <div class="detail-source"><span style="font-size:10px;color:#999;">📎 来源：天津日报</span><a class="source-link" href="https://epaper.tianjinwe.com/tjrb/html/2026-04/24/node_143096.htm" target="_blank">🔗 查看详情 ↗</a></div>
     </div></div>
   </div>
   <!-- 选题 -->
@@ -627,12 +457,12 @@
       <div class="news-num num-topic">💡</div>
       <div class="news-content">
         <div class="news-tags"><span class="tag-sm tag-topic">📋 选题</span></div>
-        <div class="news-title topic-title">实验室到市场的"最后一公里"：天开园创业者的日与夜</div>
+        <div class="news-title topic-title">愿意飞往天津吗？低空经济时代，天津能留住年轻人吗？</div>
       </div>
       <div class="expand-hint">▼</div>
     </div>
     <div class="detail-panel"><div class="detail-inner">
-      <b>延伸角度：</b>选取3位不同阶段的天开园创业者（刚入驻、融资中、已市场化），跟访记录他们从科研到商业化的真实挑战——技术转化痛点、团队搭建、市场开拓，探讨科研成果产业化的最优路径。
+      <b>延伸角度：</b>跟踪参加此次低空经济招聘会的大学生，采访其选择天津的考量（薪资、项目空间、城市生活）和顾虑，同时对比深圳、合肥等低空经济竞争城市的招聘条件，探讨天津在新兴产业人才争夺战中的优劣势。
     </div></div>
   </div>
 
