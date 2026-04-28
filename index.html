@@ -2,273 +2,403 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>天津每日热点 | 2026年04月27日</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天津每日热点选题 | 2026年4月28日</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 12px;
-        }
-        .header {
-            text-align: center;
-            background: linear-gradient(135deg, #1a73e8, #6c5ce7);
-            color: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
-        }
-        .header h1 {
-            font-size: 22px;
-            margin-bottom: 4px;
-        }
-        .header .date {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 12px;
-            font-size: 13px;
-        }
-        .stats span {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-        .section {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .section-title {
-            padding: 14px 16px;
-            font-size: 16px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .section-local .section-title {
-            background: linear-gradient(90deg, #e3f2fd, #bbdefb);
-            color: #1565c0;
-        }
-        .section-bjjj .section-title {
-            background: linear-gradient(90deg, #f3e5f5, #e1bee7);
-            color: #7b1fa2;
-        }
-        .section-person .section-title {
-            background: linear-gradient(90deg, #ffebee, #ffcdd2);
-            color: #c62828;
-        }
-        .news-item {
-            padding: 14px 16px;
-            border-bottom: 1px solid #eee;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-        }
-        .news-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 6px;
-        }
-        .news-meta {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 8px;
-        }
-        .news-summary {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-        }
-        .suggestion {
-            background: #f3e5f5;
-            border-left: 4px solid #9c27b0;
-            padding: 10px 12px;
-            border-radius: 0 8px 8px 0;
-            font-size: 13px;
-            color: #6a1b9a;
-        }
-        .suggestion::before {
-            content: "💡 ";
-        }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            color: #999;
-            font-size: 12px;
-        }
-        .footer .source {
-            margin-bottom: 4px;
-        }
-        .time-badge {
-            display: inline-block;
-            background: #e8e8e8;
-            color: #666;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 11px;
-            margin-right: 8px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f5f6fa; color: #2c3e50; }
+        .header { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.2em; margin-bottom: 8px; }
+        .header .date { font-size: 1.1em; opacity: 0.9; }
+        .header .tagline { font-size: 0.95em; opacity: 0.75; margin-top: 6px; }
+        .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+        .section-title { display: flex; align-items: center; margin: 36px 0 20px; }
+        .section-title .icon { font-size: 1.6em; margin-right: 10px; }
+        .section-title h2 { font-size: 1.35em; color: #1a2a6c; border-left: 4px solid #b21f1f; padding-left: 12px; }
+        .card { background: white; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+        .card-inner { padding: 20px 22px; }
+        .card-source { font-size: 0.78em; color: #888; margin-bottom: 6px; }
+        .card-title { font-size: 1.08em; font-weight: 700; color: #1a2a6c; margin-bottom: 8px; line-height: 1.5; }
+        .card-summary { font-size: 0.9em; color: #555; line-height: 1.7; margin-bottom: 12px; }
+        .card-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.75em; }
+        .tag-red { background: #ffeaea; color: #c0392b; }
+        .tag-blue { background: #eaf4ff; color: #1a5276; }
+        .tag-green { background: #eafff0; color: #196f3d; }
+        .tag-orange { background: #fff3e0; color: #e67e22; }
+        .topic-box { background: #f8f9fb; border-left: 3px solid #b21f1f; padding: 12px 16px; border-radius: 0 6px 6px 0; margin-top: 10px; }
+        .topic-box .label { font-size: 0.78em; color: #b21f1f; font-weight: 700; margin-bottom: 4px; }
+        .topic-box .topic-title { font-size: 0.9em; color: #333; margin-bottom: 6px; }
+        .topic-box .reason { font-size: 0.82em; color: #666; line-height: 1.6; }
+        .source-list { text-align: center; padding: 14px; color: #999; font-size: 0.78em; }
+        .source-list span { margin: 0 6px; }
+        .footer { text-align: center; padding: 24px; color: #aaa; font-size: 0.78em; }
+        .highlight-bar { background: linear-gradient(90deg, #b21f1f, #fdbb2d); height: 3px; }
+        .top-news { border-top: 3px solid #b21f1f; }
+        .top-news .card-title { font-size: 1.15em; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>📰 天津每日热点</h1>
-        <div class="date">2026年04月27日 星期一</div>
-        <div class="stats">
-            <span>📊 3大板块</span>
-            <span>📝 16条新闻</span>
-            <span>💡 16条选题建议</span>
+
+<div class="highlight-bar"></div>
+<div class="header">
+    <h1>📰 天津每日热点选题报告</h1>
+    <div class="date">2026年4月28日 · 星期二</div>
+    <div class="tagline">天津本地热点 · 京津冀合作发展 · 天津人物故事</div>
+</div>
+
+<div class="container">
+
+    <!-- ==================== 板块一：天津本地热点 ==================== -->
+    <div class="section-title">
+        <span class="icon">🔥</span>
+        <h2>天津本地热点</h2>
+    </div>
+
+    <!-- 头条 -->
+    <div class="card top-news">
+        <div class="card-inner">
+            <div class="card-source">光明日报 · 2026-04-28</div>
+            <div class="card-title">天津：推动京津冀协同发展走深走实</div>
+            <div class="card-summary">
+                天津市长张工在"开局起步十五五"天津专场新闻发布会上表示，京津冀协同发展渐入佳境，已进入全方位、高质量深入推进阶段。2026年一季度，天津与京冀两地交易金额增长超50%；"十四五"期间，天津吸纳北京技术合同成交额增长超50%；80余家央企二三级企业在津深耕展业。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-red">头条</span>
+                <span class="tag tag-blue">京津冀</span>
+                <span class="tag tag-green">十五五</span>
+                <span class="tag tag-orange">重磅政策</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《天津"十五五"蓝图：四个"支撑"锚定协同发展新坐标》</div>
+                <div class="reason">推荐理由：这是天津"十五五"开局首场专场发布会，权威发布、口径新鲜，数据硬核（一季度交易额增50%、80余家央企在津）。选题可围绕"增强服务国际科创中心""产业链群融合""重点区域承载""公共服务共建共享"四大方向展开，配图建议用天津港/滨海新区航拍图。</div>
+            </div>
         </div>
     </div>
 
-    <!-- 🔵 天津本地热点 -->
-    <div class="section section-local">
-        <div class="section-title">🔵 天津本地热点</div>
-        
-        <div class="news-item">
-            <div class="news-title">2026天津音乐节盛大启幕 95场活动精彩纷呈</div>
-            <div class="news-meta"><span class="time-badge">4月26日</span>来源：中国新闻网</div>
-            <div class="news-summary">4月26日晚，2026天津音乐节在天津大剧院启幕。本届音乐节分为"剧场内演出""沉浸式演出""群众性演出"三个部分共95场精彩活动，涵盖交响、歌剧、音乐剧等。</div>
-            <div class="suggestion">选题建议：可深度报道音乐节幕后故事，或盘点95场演出中最值得关注的TOP10，适合公众号推送</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">天津一季度GDP同比增长5.0% 实现"开门红"</div>
-            <div class="news-meta"><span class="time-badge">4月20日</span>来源：央广网</div>
-            <div class="news-summary">一季度天津市实现地区生产总值4370.10亿元，按不变价格计算，同比增长5.0%。生产供给增长加快，市场需求继续改善，居民收入稳步增长。</div>
-            <div class="suggestion">选题建议：解读一季度经济"开门红"背后的产业亮点，适合财经类公众号深度分析推送</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">武清"新商圈"建设跑出加速度 赛车比赛激活消费新场景</div>
-            <div class="news-meta"><span class="time-badge">4月18日</span>来源：天津新闻</div>
-            <div class="news-summary">跟随记者走进武清新商圈，看一场赛车比赛如何通过创造新场景，跑出消费"同心圆"，打造京津冀一小时生活圈新亮点。</div>
-            <div class="suggestion">选题建议：实地探访武清新商圈，挖掘京津冀一小时生活圈的消费新趋势，适合生活服务类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">南市食品街提升改造规划发布 百年老街焕新颜</div>
-            <div class="news-meta"><span class="time-badge">4月18日</span>来源：天津新闻</div>
-            <div class="news-summary">南市食品街提升改造规划与招商计划正式对外发布，百年老街将迎来新一轮升级改造，融合传统与现代商业元素。</div>
-            <div class="suggestion">选题建议：盘点南市食品街必打卡的经典美食，或对比新旧规划亮点，适合美食文化类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">2026海河书香节启动 打造书香天津文化名片</div>
-            <div class="news-meta"><span class="time-badge">4月18日</span>来源：天津新闻</div>
-            <div class="news-summary">2026海河书香节正式启动，将举办系列阅读推广活动，丰富市民精神文化生活，打造书香天津城市文化品牌。</div>
-            <div class="suggestion">选题建议：汇总海河书香节活动清单及参与方式，适合亲子、教育类公众号推送</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">天津2026年高考加分政策出炉 6类考生最高加20分</div>
-            <div class="news-meta"><span class="time-badge">4月</span>来源：新华网天津频道</div>
-            <div class="news-summary">2026年天津高考加分政策正式出炉，6类考生可享受加分优惠，最高可加20分，涉及烈士子女、退役军人等群体。</div>
-            <div class="suggestion">选题建议：详细解读加分政策要点及申报流程，适合教育、家长类公众号转发提醒</div>
+    <!-- 第2条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">新华网天津频道 · 2026-04-27</div>
+            <div class="card-title">天津高院发布知识产权司法保护白皮书</div>
+            <div class="card-summary">
+                天津市高级人民法院发布知识产权司法保护白皮书。据统计，2025年天津法院新收各类知识产权案件5158件，审结4824件，民事案件调解撤诉率达76.43%，民事一审案件上诉率仅5.32%，大量矛盾通过调解实质化解。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">法治</span>
+                <span class="tag tag-green">知识产权</span>
+                <span class="tag tag-orange">司法</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《76.43%调解撤诉率背后：天津知产保护如何跑出"加速度"》</div>
+                <div class="reason">推荐理由：白皮书数据详实，"76%调解率"是差异化亮点，适合做数据可视化报道。切入点可聚焦中小企业维权成本下降、滨海新区科创企业获得感等微观视角，兼具新闻价值和社会关切。</div>
+            </div>
         </div>
     </div>
 
-    <!-- 🟣 京津冀合作发展 -->
-    <div class="section section-bjjj">
-        <div class="section-title">🟣 京津冀合作发展</div>
-        
-        <div class="news-item">
-            <div class="news-title">京津冀党政主要领导座谈会召开 共谋"十五五"新征程</div>
-            <div class="news-meta"><span class="time-badge">4月23-24日</span>来源：新京报</div>
-            <div class="news-summary">4月23日至24日，京津冀党政主要领导在京召开工作座谈会，以"纵深推进京津冀协同发展 携手奋进'十五五'新征程"为主题，审议通过系列重要文件。</div>
-            <div class="suggestion">选题建议：解读座谈会对天津未来发展的影响，聚焦天津在协同发展中的新定位，适合政务解读类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">京津冀协同发展不断迈上新台阶 平均40多秒一趟列车</div>
-            <div class="news-meta"><span class="time-badge">4月16日</span>来源：央视新闻</div>
-            <div class="news-summary">从体制机制到发展布局，京津冀协同发展不断迈上新台阶。目前三地平均40多秒就有一趟列车开行，42条跨省公交线路已覆盖主要区域。</div>
-            <div class="suggestion">选题建议：图解京津冀交通一体化成果，盘点天津在轨道上的变化，适合交通出行类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">轨道交通22号线全线车站主体结构封顶 预计年内通车</div>
-            <div class="news-meta"><span class="time-badge">4月</span>来源：人民日报</div>
-            <div class="news-summary">三地共建京津冀轨道交通网络传来好消息，22号线全线20座车站主体结构已经封顶，通车后将大幅缩短京津通勤时间。</div>
-            <div class="suggestion">选题建议：梳理22号线沿线站点及换乘攻略，展望通车后的通勤便利，适合交通、城建类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">现代化首都都市圈空间协同规划获批 明确三圈建设方向</div>
-            <div class="news-meta"><span class="time-badge">1月</span>来源：中国青年报</div>
-            <div class="news-summary">今年1月，现代化首都都市圈空间协同规划正式获批，三地将加快推动通勤圈、功能圈、产业协同圈高质量建设发展。</div>
-            <div class="suggestion">选题建议：解读"三圈"规划对天津的利好，分析天津在各圈层中的角色定位，适合区域发展类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">京津冀强化人才一体化支撑 协同发展再添新动能</div>
-            <div class="news-meta"><span class="time-badge">4月25日</span>来源：国际在线</div>
-            <div class="news-summary">京津冀地区作为京畿重地，是引领全国高质量发展的三大重要动力源之一。2026年是京津冀协同发展战略实施十二周年，也是"十五五"开局之年。</div>
-            <div class="suggestion">选题建议：聚焦京津冀人才一体化政策，盘点天津引进人才的政策优势，适合人才就业类公众号</div>
+    <!-- 第3条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">天津政务网 · 2026-04-27</div>
+            <div class="card-title">2026人力资源服务业发展战略大会暨京津冀人才合作交流活动在津举办</div>
+            <div class="card-summary">
+                4月23日，由北京大学、市人社局联合主办的大会在津召开。大会以"两业融合双向赋能，人才智造共促发展"为主题。天津人力资源服务业机构综合拥有率全国第一，2026年1-2月规上营收同比增长55%。会上发布人力资源出海战略合作协议，7家人力资源服务产业园共同签署"出海协议"。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">人力资源</span>
+                <span class="tag tag-green">人才战略</span>
+                <span class="tag tag-red">全国第一</span>
+                <span class="tag tag-orange">出海</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《全国第一之后：天津人力资源服务业如何"出海"》</div>
+                <div class="reason">推荐理由：天津人力资源综合拥有率全国第一，1-2月营收同比暴涨55%，话题热度与数据冲击力兼具。选题可从"两业融合"（人力资源+制造业）切入，讲述天津如何以人力资源服务支撑制造业出海，配会现场签约等现场细节。</div>
+            </div>
         </div>
     </div>
 
-    <!-- 🔴 天津人物故事 -->
-    <div class="section section-person">
-        <div class="section-title">🔴 天津人物故事</div>
-        
-        <div class="news-item">
-            <div class="news-title">天津66位全国劳模和先进工作者获表彰</div>
-            <div class="news-meta"><span class="time-badge">4月29日</span>来源：天津政务网</div>
-            <div class="news-summary">2025年天津市66位全国劳动模范和先进工作者名单正式公布，涵盖医疗、教育、科技、社区服务等多个领域。</div>
-            <div class="suggestion">选题建议：聚焦天津上榜劳模的奋斗故事，弘扬劳动精神，适合正能量人物报道公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">天津航空信息技术尖兵傅强：技术应解决实际问题</div>
-            <div class="news-meta"><span class="time-badge">3月13日</span>来源：天津工会新闻</div>
-            <div class="news-summary">"技术不应是空中楼阁，而要解决实际问题"——记天津航空信息技术尖兵傅强的创新故事。</div>
-            <div class="suggestion">选题建议：深度挖掘傅强的技术攻关历程，展现工匠精神，适合科技人物类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">全国劳模李刚走上"代表通道" 传递一线劳动者奋进之声</div>
-            <div class="news-meta"><span class="time-badge">3月</span>来源：天津工会新闻</div>
-            <div class="news-summary">全国劳模李刚作为一线劳动者代表走上"代表通道"，分享奋斗故事，传递基层声音。</div>
-            <div class="suggestion">选题建议：还原李刚在代表通道上的精彩发言金句，适合时政、工会类公众号传播</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">城市电网"神经"抢修达人刘雪飞</div>
-            <div class="news-meta"><span class="time-badge">3月</span>来源：天津工会新闻</div>
-            <div class="news-summary">刘雪飞被称为城市电网"神经"抢修达人，在电力抢修一线默默奉献，守护万家灯火。</div>
-            <div class="suggestion">选题建议：记录电力工人24小时待命的日常，致敬城市光明的守护者，适合民生人物类公众号</div>
-        </div>
-        
-        <div class="news-item">
-            <div class="news-title">华夏车辆技术部长张承伟：匠心铸就品质</div>
-            <div class="news-meta"><span class="time-badge">5月</span>来源：天津工会新闻</div>
-            <div class="news-summary">天津市华夏车辆制造有限公司技术部部长张承伟，热爱党、热爱企业，具有高尚的职业道德和精湛的技术水平。</div>
-            <div class="suggestion">选题建议：探访天津本土制造企业的技术工匠，展现"天津制造"的新面貌，适合产业工人故事类公众号</div>
+    <!-- 第4条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">天津政务网 · 2026-04-26</div>
+            <div class="card-title">天津河北区外院附中站城市更新项目启动</div>
+            <div class="card-summary">
+                4月26日，天津河北区外国语大学附属中学站城市更新项目正式启动，标志着天津又一个 TOD 综合开发项目进入实施阶段。该项目将结合轨道交通站点周边空间，推动区域功能提升与民生改善。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">城市更新</span>
+                <span class="tag tag-green">TOD</span>
+                <span class="tag tag-orange">民生</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《"地铁+社区"：外院附中站TOD如何重塑河北区生活圈》</div>
+                <div class="reason">推荐理由：TOD（轨道+社区）模式是近年城市更新热点，与居民生活密切相关。选题建议实地探访项目现场，采访周边居民和规划专家，解读该项目对河北区商业、教育、居住环境的综合带动效应。</div>
+            </div>
         </div>
     </div>
 
-    <div class="footer">
-        <div class="source">📡 数据来源：中国新闻网、央广网、央视新闻、新华网、天津政务网等主流媒体</div>
-        <div>🕐 生成时间：2026年04月27日 10:59</div>
-        <div style="margin-top: 8px;">🔗 <a href="https://tjtvgaorui.github.io/tianjin-daily-news/" style="color: #1a73e8;">在线阅读</a></div>
+    <!-- 第5条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">天津政务网 · 2026-04-26</div>
+            <div class="card-title">天津生态城知识产权"一站式"联合服务基地投用</div>
+            <div class="card-summary">
+                中新天津生态城知识产权"一站式"联合服务基地正式投用，整合专利、商标、版权等多项服务，为区域企业提供全链条知识产权保护支持，进一步优化营商环境。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">知识产权</span>
+                <span class="tag tag-green">中新生态城</span>
+                <span class="tag tag-orange">营商环境</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《生态城知识产权"一站式"服务：企业创新"保护伞"再升级》</div>
+                <div class="reason">推荐理由：基地投用时间节点新鲜，服务模式有创新性，适合做"体验式"报道。选题方向可采访入驻生态城的科技型企业，了解"一站式"服务实际解决哪些痛点，体现天津自贸区+中新合作区的政策叠加优势。</div>
+            </div>
+        </div>
     </div>
+
+
+    <!-- ==================== 板块二：京津冀合作发展 ==================== -->
+    <div class="section-title">
+        <span class="icon">🌏</span>
+        <h2>京津冀合作发展</h2>
+    </div>
+
+    <!-- 头条 -->
+    <div class="card top-news">
+        <div class="card-inner">
+            <div class="card-source">新华网 · 2026-04-24</div>
+            <div class="card-title">持续巩固提升高质量发展动力源作用——2026年京津冀协同发展要点观察</div>
+            <div class="card-summary">
+                4月23日至24日，京津冀党政主要领导座谈会在京召开，区域经济总量已近12万亿元。会议聚焦雄安新区建设、首都通勤圈交通便利化、先进制造业集群升级、人形机器人产业链协同、美丽中国先行区建设五大重点任务。年内北京地铁22号线将具备开通条件，京雄高速二期将建成。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-red">重磅</span>
+                <span class="tag tag-blue">区域协同</span>
+                <span class="tag tag-green">十二万亿</span>
+                <span class="tag tag-orange">首都圈</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《"十二万亿"新起点：京津冀协同步入"深水区"》</div>
+                <div class="reason">推荐理由：这是京津冀区域最重要的年度顶层会议，五大任务方向明确，数据权威。选题可从"近12万亿"区域经济体量切入，围绕雄安新区、产业集群、交通互通三条主线深入展开，适合做成系列深度报道或图表专题。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第2条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">光明网 · 2026-04-28</div>
+            <div class="card-title">天津"十五五"发力"首都圈"：京津冀协同开启"建圈扩围"新阶段</div>
+            <div class="card-summary">
+                天津市政府27日发布未来五年经济社会发展蓝图，明确将深度融入"现代化首都都市圈"建设，从时空、成本、公共服务、市场容量和应用场景五方面发力，乘势推动协同发展走深走实。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">首都都市圈</span>
+                <span class="tag tag-green">十五五</span>
+                <span class="tag tag-orange">政策</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《"首都圈"时代：天津的五个"潜力股"》</div>
+                <div class="reason">推荐理由：天津市政府官方发布，权威性高，时效性极强。五个发力方向是天然的分项报道框架，可逐一展开解读。建议配发"天津融入首都都市圈路线图"信息图，适合做成深度解读+图表的融合报道。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第3条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">新浪财经 · 2026-04-24</div>
+            <div class="card-title">京津冀三地教育部门联合推进16项重点工作</div>
+            <div class="card-summary">
+                4月24日，北京市教委、天津市教委、河北省教育厅签署《十五五时期京津冀教育协同发展总体框架协议（2026—2030年）》，聚焦教育科技人才一体化、非首都功能疏解等6大任务，明确16项重点工作，包括协同创新共同体建设、区域科技成果转化效能提升等。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">教育协同</span>
+                <span class="tag tag-green">人才一体化</span>
+                <span class="tag tag-orange">框架协议</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《三地牵手"教"未来：京津冀教育协同16项实事怎么干》</div>
+                <div class="reason">推荐理由：教育是民生热点，京津冀教育一体化直接影响千家万户。协议刚签，内容具体（6大任务16项实事），适合做"逐条解读"式报道。切入点可关注天津学生能否享受到北京优质高校资源，雄安新区孩子入学有何新变化。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第4条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">新华网北京 · 2026-04-26</div>
+            <div class="card-title">2026京津冀版权主题活动在京举行，三地协同共护创新</div>
+            <div class="card-summary">
+                4月26日是第26个世界知识产权日，2026年全国知识产权宣传周北京（京津冀）版权主题活动在北京举行，京津冀三地携手共绘版权协同发展新图景，活动涵盖版权保护成果展示、协同保护机制签署等多项内容。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">知识产权日</span>
+                <span class="tag tag-green">版权保护</span>
+                <span class="tag tag-orange">三地协同</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《三地版权"一盘棋"：京津冀如何共筑创新保护屏障》</div>
+                <div class="reason">推荐理由：恰逢4·26世界知识产权日，时效性强，三地联合活动形式新颖。选题可聚焦京津冀版权协同保护机制的突破性进展，联系天津文化创意产业（动漫、设计、影视）实际案例，体现三地保护力度加码。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第5条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">腾讯新闻 · 2026-04-26</div>
+            <div class="card-title">京津冀智能网联新能源汽车主题对接活动暨生态港招商推介会举办</div>
+            <div class="card-summary">
+                活动聚焦"共造一辆车"，顺义生态港打造产业跃升策源地，贯通从科创研发、成果转化到产业落地的完整产业生态。园区聚焦汽车电子、汽车智能、汽车品质三大方向，布局9万平方米高标准厂房，筹建国家级自动驾驶检验检测中心。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">新能源汽车</span>
+                <span class="tag tag-green">智能网联</span>
+                <span class="tag tag-red">产业集群</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《三地联手"造车"：京津冀智能网联汽车产业版图浮出水面》</div>
+                <div class="reason">推荐理由："共造一辆车"是形象的协同叙事切入点。选题可从整车与零部件产业链视角展开，解读天津在汽车电子、动力电池等细分领域如何嵌入京津冀整车产业链，突出天津的差异化定位。</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== 板块三：天津人物故事 ==================== -->
+    <div class="section-title">
+        <span class="icon">🌟</span>
+        <h2>天津人物故事</h2>
+    </div>
+
+    <!-- 头条 -->
+    <div class="card top-news">
+        <div class="card-inner">
+            <div class="card-source">天津发布 · 天津日报 · 2026-04-16</div>
+            <div class="card-title">鲁班工坊建设团队、中交一航局深远海施工团队、窦强获"天津楷模"称号</div>
+            <div class="card-summary">
+                天津市委宣传部、市文明办授予"鲁班工坊建设团队先进群体""中交一航局深远海施工团队""窦强同志"三项"天津楷模"荣誉。他们分别代表中国职教出海国家品牌、深蓝筑港国家力量、自主芯片科技高峰，是新时代的天津精神标杆。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-red">天津楷模</span>
+                <span class="tag tag-blue">重大荣誉</span>
+                <span class="tag tag-green">榜样力量</span>
+                <span class="tag tag-orange">时代精神</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《三座精神丰碑：解码"天津楷模"的时代密码》</div>
+                <div class="reason">推荐理由：三位获奖者代表三个不同领域（职业教育、深海工程、芯片科技），是极佳的群像报道素材。建议以"三个人，一座城"为主线，讲述他们背后天津这座城市的性格——开放、坚韧、创新。可配发三位楷模的人物特写或工作场景图。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第2条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">163网站 · 2026-04</div>
+            <div class="card-title">吕景泉与鲁班工坊：职业教育出海的"中国名片"</div>
+            <div class="card-summary">
+                鲁班工坊建设团队核心成员吕景泉，30多年来从三尺讲台和实训车间干起，带学生、编课程、打造标准，将中国职业教育"地方实践"升级为服务外交大局的"国家品牌"，为"一带一路"国家培养了大批高素质技术人才。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">鲁班工坊</span>
+                <span class="tag tag-green">职业教育</span>
+                <span class="tag tag-orange">一带一路</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《从实训车间到"一带一路"：鲁班工坊的30年出海之路》</div>
+                <div class="reason">推荐理由：吕景泉个人故事线索清晰，从普通教师到职教出海推动者，极具励志色彩。选题可通过他一个人的成长折射整个中国职业教育国际化进程。建议实地拍摄天津职业院校实训车间，以小见大讲故事。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第3条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">搜狐网 · 2026-04-17</div>
+            <div class="card-title">窦强：从20人到2000人，飞腾芯片的十年追"芯"路</div>
+            <div class="card-summary">
+                飞腾信息技术有限公司首席科学家窦强，带领团队从2014年创业之初的20多人，发展到如今近两千名员工的磅礴方阵。他坚持"关键核心技术必须牢牢掌握在自己手中"，主持研制了飞腾系列处理器，实现我国自主高性能处理器的重大突破。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">飞腾芯片</span>
+                <span class="tag tag-red">科技攻关</span>
+                <span class="tag tag-green">自主创新</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《从20人到2000人：窦强团队追"芯"十年的硬核叙事》</div>
+                <div class="reason">推荐理由：窦强的故事自带"硬科技+热血创业"双重叙事基因。"20人→2000人"是天然的数据可视化素材，"关键核心技术必须牢牢掌握在自己手中"是可出圈的金句。建议做深度人物特写，配芯片实物图和团队对比照片。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第4条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">中国青年报 · 2026-04-24</div>
+            <div class="card-title">天津共青团就业引航示范宣讲暨专场招聘会在天津师范大学举行</div>
+            <div class="card-summary">
+                4月24日，"出彩人生 '就'在基层"2026年天津共青团就业引航示范宣讲暨共青团促进大学生就业专场招聘会在天津师范大学成功举办，引导高校毕业生树立正确的就业观、价值观，在基层一线成长成才。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">就业</span>
+                <span class="tag tag-green">青年</span>
+                <span class="tag tag-orange">基层</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《"就在基层"：天津大学生就业引航的青春叙事》</div>
+                <div class="reason">推荐理由：就业是民生热点，青年群体关注度高。选题可聚焦宣讲会上涌现的基层就业典型故事，如返乡创业、乡村振兴、科技基层等，展现当代天津青年的择业观与价值追求，贴合"十五五"人才强市主题。</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第5条 -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="card-source">央视网 · 2026-04-25</div>
+            <div class="card-title">"山海寻梦"职业生涯主题实践活动在天津成功举办</div>
+            <div class="card-summary">
+                由教育部、天津市人民政府主办，天津市教育委员会、天津工业大学承办的第三届全国大学生职业规划大赛总决赛同期活动——"山海寻梦"职业生涯主题实践活动在天津举办，聚焦高校学生职业规划与就业能力提升。
+            </div>
+            <div class="card-meta">
+                <span class="tag tag-blue">职业规划</span>
+                <span class="tag tag-green">教育部</span>
+                <span class="tag tag-orange">全国大赛</span>
+            </div>
+            <div class="topic-box">
+                <div class="label">💡 选题建议</div>
+                <div class="topic-title">《全国大赛为何花落天津：职业规划教育的"天津方案"》</div>
+                <div class="reason">推荐理由：教育部+天津市政府联合主办，规格高，落地天津具有标志性意义。选题可从"天津为何能承办"切入，挖掘天津在职业教育、职业规划领域的先行探索，展示天津在高教和就业领域的软实力。</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="source-list">
+    <p>信源：人民日报 · 新华网 · 天津日报 · 北方网 · 央广网 · 光明日报 · 中国新闻网 · 中新社</p>
+    <p style="margin-top:6px;">生成时间：2026年4月28日 | 天津每日热点选题报告</p>
+</div>
+
+<div class="footer">
+    <p>本报告由自动化新闻助手生成 | 仅供选题参考</p>
+</div>
+
 </body>
 </html>
