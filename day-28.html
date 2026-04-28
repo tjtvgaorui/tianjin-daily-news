@@ -12,13 +12,30 @@
         .header .date { font-size: 1.1em; opacity: 0.9; }
         .header .tagline { font-size: 0.95em; opacity: 0.75; margin-top: 6px; }
         .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
-        .section-title { display: flex; align-items: center; margin: 36px 0 20px; }
-        .section-title .icon { font-size: 1.6em; margin-right: 10px; }
-        .section-title h2 { font-size: 1.35em; color: #1a2a6c; border-left: 4px solid #b21f1f; padding-left: 12px; }
+        .section-title { display: flex; align-items: center; margin: 0; padding: 16px 18px; border-radius: 10px; }
+        .section-title .icon { font-size: 1.5em; margin-right: 10px; }
+        .section-title h2 { font-size: 1.3em; padding-left: 12px; }
+        .section-title .count { margin-left: auto; font-size: 0.82em; opacity: 0.7; }
+        /* 板块1 - 蓝色系 */
+        .sec-local { background: linear-gradient(135deg, #e3f2fd, #bbdefb); }
+        .sec-local h2 { color: #1565c0; border-left: 4px solid #1565c0; }
+        .sec-local .section-title .count { color: #1565c0; }
+        /* 板块2 - 紫色系 */
+        .sec-jjj { background: linear-gradient(135deg, #f3e5f5, #e1bee7); }
+        .sec-jjj h2 { color: #7b1fa2; border-left: 4px solid #7b1fa2; }
+        .sec-jjj .section-title .count { color: #7b1fa2; }
+        /* 板块3 - 红色系 */
+        .sec-person { background: linear-gradient(135deg, #fce4ec, #f8bbd0); }
+        .sec-person h2 { color: #c62828; border-left: 4px solid #c62828; }
+        .sec-person .section-title .count { color: #c62828; }
+        .section-block { margin-top: 32px; padding-top: 0; }
+        .section-block:first-child { margin-top: 0; }
         .card { background: white; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin-bottom: 16px; overflow: hidden; transition: transform 0.2s; }
         .card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
         .card-inner { padding: 20px 22px; }
-        .card-source { font-size: 0.78em; color: #888; margin-bottom: 6px; }
+        .card-source { font-size: 0.78em; color: #888; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .card-source a { color: #1565c0; text-decoration: none; display: inline-flex; align-items: center; gap: 3px; padding: 2px 8px; background: #eef3fa; border-radius: 12px; font-size: 0.95em; transition: all 0.2s; }
+        .card-source a:hover { background: #d4e3f5; color: #0d47a1; }
         .card-title { font-size: 1.08em; font-weight: 700; color: #1a2a6c; margin-bottom: 8px; line-height: 1.5; }
         .card-summary { font-size: 0.9em; color: #555; line-height: 1.7; margin-bottom: 12px; }
         .card-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
@@ -31,6 +48,18 @@
         .topic-box .label { font-size: 0.78em; color: #b21f1f; font-weight: 700; margin-bottom: 4px; }
         .topic-box .topic-title { font-size: 0.9em; color: #333; margin-bottom: 6px; }
         .topic-box .reason { font-size: 0.82em; color: #666; line-height: 1.6; }
+        /* 板块1选题 - 蓝色 */
+        .sec-local .topic-box { border-left-color: #1565c0; }
+        .sec-local .topic-box .label { color: #1565c0; }
+        .sec-local .topic-box { background: #f0f5ff; }
+        /* 板块2选题 - 紫色 */
+        .sec-jjj .topic-box { border-left-color: #7b1fa2; }
+        .sec-jjj .topic-box .label { color: #7b1fa2; }
+        .sec-jjj .topic-box { background: #faf0ff; }
+        /* 板块3选题 - 红色 */
+        .sec-person .topic-box { border-left-color: #c62828; }
+        .sec-person .topic-box .label { color: #c62828; }
+        .sec-person .topic-box { background: #fff5f5; }
         .source-list { text-align: center; padding: 14px; color: #999; font-size: 0.78em; }
         .source-list span { margin: 0 6px; }
         .footer { text-align: center; padding: 24px; color: #aaa; font-size: 0.78em; }
@@ -51,15 +80,17 @@
 <div class="container">
 
     <!-- ==================== 板块一：天津本地热点 ==================== -->
-    <div class="section-title">
-        <span class="icon">🔥</span>
+    <div class="section-block sec-local">
+    <div class="section-title sec-local">
+        <span class="icon">🏠</span>
         <h2>天津本地热点</h2>
+        <span class="count">5 条新闻</span>
     </div>
 
     <!-- 头条 -->
     <div class="card top-news">
         <div class="card-inner">
-            <div class="card-source">光明日报 · 2026-04-28</div>
+            <div class="card-source"><span>光明日报 · 2026-04-28</span><a href="https://www.gmw.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">天津：推动京津冀协同发展走深走实</div>
             <div class="card-summary">
                 天津市长张工在"开局起步十五五"天津专场新闻发布会上表示，京津冀协同发展渐入佳境，已进入全方位、高质量深入推进阶段。2026年一季度，天津与京冀两地交易金额增长超50%；"十四五"期间，天津吸纳北京技术合同成交额增长超50%；80余家央企二三级企业在津深耕展业。
@@ -81,7 +112,7 @@
     <!-- 第2条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">新华网天津频道 · 2026-04-27</div>
+            <div class="card-source"><span>新华网天津频道 · 2026-04-27</span><a href="http://www.tj.xinhuanet.com/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">天津高院发布知识产权司法保护白皮书</div>
             <div class="card-summary">
                 天津市高级人民法院发布知识产权司法保护白皮书。据统计，2025年天津法院新收各类知识产权案件5158件，审结4824件，民事案件调解撤诉率达76.43%，民事一审案件上诉率仅5.32%，大量矛盾通过调解实质化解。
@@ -102,7 +133,7 @@
     <!-- 第3条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">天津政务网 · 2026-04-27</div>
+            <div class="card-source"><span>天津政务网 · 2026-04-27</span><a href="https://www.tj.gov.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">2026人力资源服务业发展战略大会暨京津冀人才合作交流活动在津举办</div>
             <div class="card-summary">
                 4月23日，由北京大学、市人社局联合主办的大会在津召开。大会以"两业融合双向赋能，人才智造共促发展"为主题。天津人力资源服务业机构综合拥有率全国第一，2026年1-2月规上营收同比增长55%。会上发布人力资源出海战略合作协议，7家人力资源服务产业园共同签署"出海协议"。
@@ -124,7 +155,7 @@
     <!-- 第4条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">天津政务网 · 2026-04-26</div>
+            <div class="card-source"><span>天津政务网 · 2026-04-26</span><a href="https://www.tj.gov.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">天津河北区外院附中站城市更新项目启动</div>
             <div class="card-summary">
                 4月26日，天津河北区外国语大学附属中学站城市更新项目正式启动，标志着天津又一个 TOD 综合开发项目进入实施阶段。该项目将结合轨道交通站点周边空间，推动区域功能提升与民生改善。
@@ -145,7 +176,7 @@
     <!-- 第5条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">天津政务网 · 2026-04-26</div>
+            <div class="card-source"><span>天津政务网 · 2026-04-26</span><a href="https://www.tj.gov.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">天津生态城知识产权"一站式"联合服务基地投用</div>
             <div class="card-summary">
                 中新天津生态城知识产权"一站式"联合服务基地正式投用，整合专利、商标、版权等多项服务，为区域企业提供全链条知识产权保护支持，进一步优化营商环境。
@@ -165,15 +196,18 @@
 
 
     <!-- ==================== 板块二：京津冀合作发展 ==================== -->
-    <div class="section-title">
-        <span class="icon">🌏</span>
+    </div>
+    <div class="section-block sec-jjj">
+    <div class="section-title sec-jjj">
+        <span class="icon">🤝</span>
         <h2>京津冀合作发展</h2>
+        <span class="count">5 条新闻</span>
     </div>
 
     <!-- 头条 -->
     <div class="card top-news">
         <div class="card-inner">
-            <div class="card-source">新华网 · 2026-04-24</div>
+            <div class="card-source"><span>新华网 · 2026-04-24</span><a href="https://www.news.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">持续巩固提升高质量发展动力源作用——2026年京津冀协同发展要点观察</div>
             <div class="card-summary">
                 4月23日至24日，京津冀党政主要领导座谈会在京召开，区域经济总量已近12万亿元。会议聚焦雄安新区建设、首都通勤圈交通便利化、先进制造业集群升级、人形机器人产业链协同、美丽中国先行区建设五大重点任务。年内北京地铁22号线将具备开通条件，京雄高速二期将建成。
@@ -195,7 +229,7 @@
     <!-- 第2条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">光明网 · 2026-04-28</div>
+            <div class="card-source"><span>光明网 · 2026-04-28</span><a href="https://www.gmw.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">天津"十五五"发力"首都圈"：京津冀协同开启"建圈扩围"新阶段</div>
             <div class="card-summary">
                 天津市政府27日发布未来五年经济社会发展蓝图，明确将深度融入"现代化首都都市圈"建设，从时空、成本、公共服务、市场容量和应用场景五方面发力，乘势推动协同发展走深走实。
@@ -216,7 +250,7 @@
     <!-- 第3条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">新浪财经 · 2026-04-24</div>
+            <div class="card-source"><span>新浪财经 · 2026-04-24</span><a href="https://finance.sina.com.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">京津冀三地教育部门联合推进16项重点工作</div>
             <div class="card-summary">
                 4月24日，北京市教委、天津市教委、河北省教育厅签署《十五五时期京津冀教育协同发展总体框架协议（2026—2030年）》，聚焦教育科技人才一体化、非首都功能疏解等6大任务，明确16项重点工作，包括协同创新共同体建设、区域科技成果转化效能提升等。
@@ -237,7 +271,7 @@
     <!-- 第4条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">新华网北京 · 2026-04-26</div>
+            <div class="card-source"><span>新华网北京 · 2026-04-26</span><a href="https://www.news.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">2026京津冀版权主题活动在京举行，三地协同共护创新</div>
             <div class="card-summary">
                 4月26日是第26个世界知识产权日，2026年全国知识产权宣传周北京（京津冀）版权主题活动在北京举行，京津冀三地携手共绘版权协同发展新图景，活动涵盖版权保护成果展示、协同保护机制签署等多项内容。
@@ -258,7 +292,7 @@
     <!-- 第5条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">腾讯新闻 · 2026-04-26</div>
+            <div class="card-source"><span>腾讯新闻 · 2026-04-26</span><a href="https://www.qq.com/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">京津冀智能网联新能源汽车主题对接活动暨生态港招商推介会举办</div>
             <div class="card-summary">
                 活动聚焦"共造一辆车"，顺义生态港打造产业跃升策源地，贯通从科创研发、成果转化到产业落地的完整产业生态。园区聚焦汽车电子、汽车智能、汽车品质三大方向，布局9万平方米高标准厂房，筹建国家级自动驾驶检验检测中心。
@@ -278,15 +312,18 @@
 
 
     <!-- ==================== 板块三：天津人物故事 ==================== -->
-    <div class="section-title">
-        <span class="icon">🌟</span>
+    </div>
+    <div class="section-block sec-person">
+    <div class="section-title sec-person">
+        <span class="icon">👤</span>
         <h2>天津人物故事</h2>
+        <span class="count">5 条新闻</span>
     </div>
 
     <!-- 头条 -->
     <div class="card top-news">
         <div class="card-inner">
-            <div class="card-source">天津发布 · 天津日报 · 2026-04-16</div>
+            <div class="card-source"><span>天津发布 · 天津日报 · 2026-04-16</span><a href="https://www.tj.gov.cn/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">鲁班工坊建设团队、中交一航局深远海施工团队、窦强获"天津楷模"称号</div>
             <div class="card-summary">
                 天津市委宣传部、市文明办授予"鲁班工坊建设团队先进群体""中交一航局深远海施工团队""窦强同志"三项"天津楷模"荣誉。他们分别代表中国职教出海国家品牌、深蓝筑港国家力量、自主芯片科技高峰，是新时代的天津精神标杆。
@@ -308,7 +345,7 @@
     <!-- 第2条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">163网站 · 2026-04</div>
+            <div class="card-source"><span>163网站 · 2026-04</span><a href="https://www.163.com/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">吕景泉与鲁班工坊：职业教育出海的"中国名片"</div>
             <div class="card-summary">
                 鲁班工坊建设团队核心成员吕景泉，30多年来从三尺讲台和实训车间干起，带学生、编课程、打造标准，将中国职业教育"地方实践"升级为服务外交大局的"国家品牌"，为"一带一路"国家培养了大批高素质技术人才。
@@ -329,7 +366,7 @@
     <!-- 第3条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">搜狐网 · 2026-04-17</div>
+            <div class="card-source"><span>搜狐网 · 2026-04-17</span><a href="https://www.sohu.com/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">窦强：从20人到2000人，飞腾芯片的十年追"芯"路</div>
             <div class="card-summary">
                 飞腾信息技术有限公司首席科学家窦强，带领团队从2014年创业之初的20多人，发展到如今近两千名员工的磅礴方阵。他坚持"关键核心技术必须牢牢掌握在自己手中"，主持研制了飞腾系列处理器，实现我国自主高性能处理器的重大突破。
@@ -350,7 +387,7 @@
     <!-- 第4条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">中国青年报 · 2026-04-24</div>
+            <div class="card-source"><span>中国青年报 · 2026-04-24</span><a href="https://www.cyol.com/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">天津共青团就业引航示范宣讲暨专场招聘会在天津师范大学举行</div>
             <div class="card-summary">
                 4月24日，"出彩人生 '就'在基层"2026年天津共青团就业引航示范宣讲暨共青团促进大学生就业专场招聘会在天津师范大学成功举办，引导高校毕业生树立正确的就业观、价值观，在基层一线成长成才。
@@ -371,7 +408,7 @@
     <!-- 第5条 -->
     <div class="card">
         <div class="card-inner">
-            <div class="card-source">央视网 · 2026-04-25</div>
+            <div class="card-source"><span>央视网 · 2026-04-25</span><a href="https://www.cctv.com/" target="_blank">🔗 查看原文 ↗</a></div>
             <div class="card-title">"山海寻梦"职业生涯主题实践活动在天津成功举办</div>
             <div class="card-summary">
                 由教育部、天津市人民政府主办，天津市教育委员会、天津工业大学承办的第三届全国大学生职业规划大赛总决赛同期活动——"山海寻梦"职业生涯主题实践活动在天津举办，聚焦高校学生职业规划与就业能力提升。
@@ -388,6 +425,7 @@
             </div>
         </div>
     </div>
+    </div><!-- end section-block -->
 
 </div>
 
