@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>天津每日热点选题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 20px 16px;
+            color: #e8e8e8;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .date-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .date-nav a {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 1px solid rgba(0,212,255,0.3);
+        }
+        .date-nav a:hover, .date-nav a.active {
+            background: rgba(0,212,255,0.2);
+            border-color: #00d4ff;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #00d4ff, #00ff88);
+            border-radius: 2px;
+        }
+        .news-item {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .news-item:first-child {
+            padding-top: 0;
+        }
+        .news-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #fff;
+            line-height: 1.5;
+        }
+        .news-source {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+        .news-source span {
+            margin-right: 12px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 32px;
+            padding: 20px;
+            color: rgba(255,255,255,0.4);
+            font-size: 12px;
+        }
+        .footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        .publish-info {
+            background: rgba(0,212,255,0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 24px;
+            text-align: center;
+            border: 1px solid rgba(0,212,255,0.2);
+        }
+        .publish-info .date {
+            font-size: 18px;
+            font-weight: 600;
+            color: #00d4ff;
+            margin-bottom: 4px;
+        }
+        .publish-info .status {
+            font-size: 13px;
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📰 天津每日热点选题</h1>
+        </div>
+        
+        <div class="date-nav">
+            <a href="day-28.html">← 昨天</a>
+            <a href="index.html" class="active">📅 今天</a>
+            <a href="day-30.html">明天 →</a>
+        </div>
+        
+        <div class="publish-info">
+            <div class="date">2026年4月29日 · 星期三</div>
+            <div class="status">🔄 自动化选题已更新</div>
+        </div>
+
+        <!-- 天津本地热点 -->
+        <div class="card">
+            <div class="card-icon">🌆</div>
+            <div class="card-title">天津本地热点</div>
+            
+            <div class="news-item">
+                <div class="news-title">张工在"开局起步'十五五'"天津专场新闻发布会上作主发布</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-28</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津市举行新闻发布会解读"十五五"发展目标举措</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-28</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津新材料项目正式启动，助力产业升级</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-28</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津河北区外院附中站城市更新项目启动</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-26</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津生态城知识产权"一站式"联合服务基地正式投用</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-26</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 京津冀合作发展 -->
+        <div class="card">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title">京津冀合作发展</div>
+            
+            <div class="news-item">
+                <div class="news-title">京津冀党政主要领导召开工作座谈会，纵深推进协同发展</div>
+                <div class="news-source">
+                    <span>📍 新华网/人民网</span>
+                    <span>🕐 2026-04-24</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">2026新京智库春季论坛举行，聚焦京津冀消费协同</div>
+                <div class="news-source">
+                    <span>📍 新浪财经</span>
+                    <span>🕐 2026-04-26</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">2026人力资源服务业发展战略大会暨京津冀人才合作交流活动在津召开</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-27</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">京津冀协同发展合作签约与发布活动举行，项目签约涵盖多领域</div>
+                <div class="news-source">
+                    <span>📍 天津开发区官网</span>
+                    <span>🕐 2026-04-26</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">京津冀区域经济总量近12万亿元，迈向"十五五"新征程</div>
+                <div class="news-source">
+                    <span>📍 人民网</span>
+                    <span>🕐 2026-04-24</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 天津人物故事 -->
+        <div class="card">
+            <div class="card-icon">👤</div>
+            <div class="card-title">天津人物故事</div>
+            
+            <div class="news-item">
+                <div class="news-title">"中国网事·感动2026"一季度网络感动人物公布，10位扎根基层的平凡英雄入选</div>
+                <div class="news-source">
+                    <span>📍 新华网</span>
+                    <span>🕐 2026-04-16</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津市2026年"讲述我的育人故事"现场展示活动举办，27位一线教师讲述育人初心</div>
+                <div class="news-source">
+                    <span>📍 天津师范大学官网</span>
+                    <span>🕐 2026-04-24</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津滨海新区检察院发布知识产权检察工作白皮书，展现知识产权保护力度</div>
+                <div class="news-source">
+                    <span>📍 天津政务网</span>
+                    <span>🕐 2026-04-26</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津北辰区市场监管局全链条整治电动自行车安全隐患，保障群众出行安全</div>
+                <div class="news-source">
+                    <span>📍 央广网天津</span>
+                    <span>🕐 2026-04-23</span>
+                </div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-title">天津宾西路23号院安装新路灯，照亮居民回家路</div>
+                <div class="news-source">
+                    <span>📍 北方网</span>
+                    <span>🕐 2026-04-23</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📡 数据来源：人民网、新华网、天津政务网、北方网、央广网</p>
+            <p style="margin-top: 8px;">🔗 <a href="https://tjtvgaorui.github.io/tianjin-daily-news/">访问主页</a> · 由 CodeBuddy 自动化生成</p>
+        </div>
+    </div>
+</body>
+</html>
